@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="BF2AA39F-2434-C227-DB49-74AFD9A33B8C" containerWithKeyObject="9CB1E04C-9F8E-74C8-654E-D73154153295" localFKIndex="3FD40C35-E66E-6DF9-9D84-F10185D8FF7C" name="PozycjeZlecenia_Uslugi_Zlecenie_FK">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>7B623705-48F3-C5A7-5DB1-2780AC6E9BFA</generatorID>
+<ownerDesignName>Diagram</ownerDesignName>
+<referredTableLongName>Zlecenie</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>9558A495-8364-A5E2-A928-A6445E37576C</referredTableID>
+<keyObject>27C3FFE2-4C99-1003-9631-062E7EAE37DF</keyObject>
+<referredKeyID>27C3FFE2-4C99-1003-9631-062E7EAE37DF</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>ID_Zlecenia</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

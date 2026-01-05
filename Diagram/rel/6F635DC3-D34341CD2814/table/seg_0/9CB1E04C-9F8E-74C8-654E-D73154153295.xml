@@ -1,0 +1,129 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="9CB1E04C-9F8E-74C8-654E-D73154153295" name="PozycjeZlecenia_Uslugi">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>24241123-D2D9-CED5-1242-DFE9124B12ED</generatorID>
+<ownerDesignName>Diagram</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_PozycjiUslugi" id="8C5DB8FC-5C9C-9AFE-62B2-8D4B5B80D2E6">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>19ED66B7-95F6-27B9-8F28-3642430170BC</generatorID>
+<ownerDesignName>Diagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Krotnosc" id="8DA602FC-0C01-07FF-2BB1-41142303DDF5">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>49C2DDA5-4DE5-1761-B25F-AD582FD07DA8</generatorID>
+<ownerDesignName>Diagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="RabatNaUsluge" id="B79F458B-C3DE-6D2E-CCC0-143E889C648B">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>4FBD2AE6-8B4B-6EB8-9191-708C9CDA31D3</generatorID>
+<ownerDesignName>Diagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<dataTypeScale>3</dataTypeScale>
+<ownDataTypeParameters>,2,3</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CenaKoncowa" id="921C88D8-B772-1740-0123-0812524C0D78">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>7F500699-937D-74DC-B044-E8FF8F8311CE</generatorID>
+<ownerDesignName>Diagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT043</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<dataTypeScale>10</dataTypeScale>
+<ownDataTypeParameters>,2,10</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Zlecenie_ID_Zlecenia" id="971481D1-5DDE-3AD8-913A-6933C1E10ACE">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>40C6177E-D796-96AE-9939-164108625839</generatorID>
+<ownerDesignName>Diagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="BF2AA39F-2434-C227-DB49-74AFD9A33B8C" referredColumn="E34CADBB-4546-F8C3-6F96-D5292C26FCE0"/>
+</associations>
+</Column>
+<Column name="KatalogUslug_ID_Uslugi" id="0083B97A-A57F-5CD9-4112-59E336A5D53C">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>CCA2A3F5-8FB1-0A6C-414B-F5B64CB261E9</generatorID>
+<ownerDesignName>Diagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="97A3CEF4-DD34-C0D0-83AE-7B43158CF9CE" referredColumn="629FFFDA-0CB7-2A41-E1DD-5C36C6500C4D"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="D4DFE8A4-A0C2-76A1-9BA8-CA3590B04F65" name="PozycjeZlecenia_Uslugi_PK">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>16218EAE-9276-1B27-BB05-95D0841C6CC8</generatorID>
+<ownerDesignName>Diagram</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8C5DB8FC-5C9C-9AFE-62B2-8D4B5B80D2E6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3FD40C35-E66E-6DF9-9D84-F10185D8FF7C" name="PozycjeZlecenia_Uslugi_Zlecenie_FK">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>7B623705-48F3-C5A7-5DB1-2780AC6E9BFA</generatorID>
+<ownerDesignName>Diagram</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="971481D1-5DDE-3AD8-913A-6933C1E10ACE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="6EBD33D8-7005-166D-BD0D-8C04A2FE5B41" name="PozycjeZlecenia_Uslugi_KatalogUslug_FK">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>AE781C87-6794-7045-2299-63EA67852AA8</generatorID>
+<ownerDesignName>Diagram</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0083B97A-A57F-5CD9-4112-59E336A5D53C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

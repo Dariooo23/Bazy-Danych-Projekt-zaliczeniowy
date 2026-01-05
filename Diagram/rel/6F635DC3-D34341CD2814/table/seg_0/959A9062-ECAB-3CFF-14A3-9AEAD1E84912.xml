@@ -1,0 +1,75 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="959A9062-ECAB-3CFF-14A3-9AEAD1E84912" name="KatalogUslug">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>CA01A617-9F3D-77C9-FFC3-2F64A2EC4B84</generatorID>
+<ownerDesignName>Diagram</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_Uslugi" id="629FFFDA-0CB7-2A41-E1DD-5C36C6500C4D">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>626A8A15-E127-354D-E5FA-1BEFF80B2DF7</generatorID>
+<ownerDesignName>Diagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NazwaUslugi" id="8A120663-E102-A4BB-7866-97393CFDD90B">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>3B88A399-1958-5535-81F6-A6451C561B0B</generatorID>
+<ownerDesignName>Diagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CenaBazowa" id="F5A8CBDE-94A5-5690-D0B4-239B0D31BF92">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>91C51004-D7C1-BB0A-4CB4-EC378EA3C187</generatorID>
+<ownerDesignName>Diagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT043</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<dataTypeScale>10</dataTypeScale>
+<ownDataTypeParameters>,2,10</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SzacowanyCzasRbh" id="C8D8173C-105F-AA0C-5EF2-AC4DAB5FDD6D">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>7C6AF093-A530-AA28-BD8E-BD94E9EDB548</generatorID>
+<ownerDesignName>Diagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="965A88B3-A27F-04F1-F109-A5893C999CEA" name="KatalogUslug_PK">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>7C3C46C5-7FC7-71F5-5EE0-7ABBB8C81AB0</generatorID>
+<ownerDesignName>Diagram</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="629FFFDA-0CB7-2A41-E1DD-5C36C6500C4D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

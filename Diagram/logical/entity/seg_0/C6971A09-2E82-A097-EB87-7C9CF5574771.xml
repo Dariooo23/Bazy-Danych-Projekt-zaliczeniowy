@@ -1,0 +1,73 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="C6971A09-2E82-A097-EB87-7C9CF5574771" name="Pracownik">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 10:21:44 UTC</createdTime>
+<ownerDesignName>Diagram</ownerDesignName>
+<engineerTo>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<hierarchicalParent>92CAFB97-87DA-DC32-D08F-43F075D8D203</hierarchicalParent>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="DataZatrudnienia" id="E631D5D0-4D56-07F7-C2E6-C7A69E1AD0F3">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 10:21:58 UTC</createdTime>
+<ownerDesignName>Diagram</ownerDesignName>
+<engineerTo>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="PensjaPodstawowa" id="2F33DB77-EE09-254A-981B-037590DF9604">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 10:21:59 UTC</createdTime>
+<ownerDesignName>Diagram</ownerDesignName>
+<engineerTo>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT043</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<dataTypeScale>10</dataTypeScale>
+<ownDataTypeParameters>,2,10</ownDataTypeParameters>
+</Attribute>
+<Attribute name="NrKontaBankowego" id="25DE34CD-C70D-EE6E-C7E4-1E3FFBE5EA8A">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 10:21:59 UTC</createdTime>
+<ownerDesignName>Diagram</ownerDesignName>
+<engineerTo>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<dataTypeSize>32 CHAR</dataTypeSize>
+<ownDataTypeParameters>32 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID_Stanowiska" id="8BAB9EDB-C43B-42D6-3F38-B1C1D3C0BEA9">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:20:44 UTC</createdTime>
+<generatorID>0B75A56A-C0D2-DCAC-4DC7-0E7938D41937</generatorID>
+<ownerDesignName>Diagram</ownerDesignName>
+<engineerTo>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+</engineerTo>
+<referedAttribute>C1C12BCB-037B-0EED-5C89-10226DECF1A2</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+</Entity>

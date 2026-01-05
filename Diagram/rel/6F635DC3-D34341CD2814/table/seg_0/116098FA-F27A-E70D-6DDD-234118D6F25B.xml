@@ -1,0 +1,75 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="116098FA-F27A-E70D-6DDD-234118D6F25B" name="Stanowisko">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>A3281E8F-BA05-7383-F2E7-44B2C80A4F7E</generatorID>
+<ownerDesignName>Diagram</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_Stanowiska" id="68237B3B-C409-A289-DFE1-15F546A23320">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>C1C12BCB-037B-0EED-5C89-10226DECF1A2</generatorID>
+<ownerDesignName>Diagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NazwaStanowiska" id="F92613CB-DD92-18E1-0FB8-2421A8E8AD85">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>1A308D0C-1671-AA9B-7BE9-9DBA50D1CDA3</generatorID>
+<ownerDesignName>Diagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Opis" id="7CA3FAA5-00BA-E5D7-DDFE-A473884C168A">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>E59EBFCB-97DD-1835-D112-95A5EC6BB260</generatorID>
+<ownerDesignName>Diagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<dataTypeSize>255 CHAR</dataTypeSize>
+<ownDataTypeParameters>255 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="StawkaGodzinowa" id="4161F44E-C1D1-44D6-A703-A0A284408076">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>92D8E6F3-1546-E798-0BC7-28BA6BBA2E2C</generatorID>
+<ownerDesignName>Diagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT043</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<dataTypeScale>10</dataTypeScale>
+<ownDataTypeParameters>,2,10</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="D3090A69-1D12-D72D-8AA7-107D65D60E33" name="Stanowisko_PK">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>3AB3DC32-68B8-8D83-CB91-2107D0FBACD9</generatorID>
+<ownerDesignName>Diagram</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="68237B3B-C409-A289-DFE1-15F546A23320"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

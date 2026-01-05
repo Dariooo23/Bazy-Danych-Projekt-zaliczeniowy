@@ -1,0 +1,137 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="6D518B37-FFC5-C6F4-7CCC-C0AA80E24C11" name="Zlecenie">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:00:06 UTC</createdTime>
+<ownerDesignName>Diagram</ownerDesignName>
+<engineerTo>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ID_Zlecenia" id="697709E7-C87D-436D-91DB-1884E719820F">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:00:43 UTC</createdTime>
+<ownerDesignName>Diagram</ownerDesignName>
+<engineerTo>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="NumerZlecenia" id="A46F7C9A-13F1-FC6D-B7EE-A4B48382F952">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:00:43 UTC</createdTime>
+<ownerDesignName>Diagram</ownerDesignName>
+<engineerTo>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DataPrzyjecia" id="9F549F30-A2CC-4160-F732-1755F37CB1E8">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:00:43 UTC</createdTime>
+<ownerDesignName>Diagram</ownerDesignName>
+<engineerTo>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DataPlanowanegoOdbioru" id="5EF748DF-9D69-E44F-1882-50F50C1C0415">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:00:43 UTC</createdTime>
+<ownerDesignName>Diagram</ownerDesignName>
+<engineerTo>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="OpisUsterki" id="BED1CCB0-F498-86E8-6482-56C5F6139EE5">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:00:44 UTC</createdTime>
+<ownerDesignName>Diagram</ownerDesignName>
+<engineerTo>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT028</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID_Pojazdu" id="3EA99D91-0C1A-6C3E-6C1C-EA14903F2ABA">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:24:35 UTC</createdTime>
+<generatorID>B6C37AC6-35F4-49B3-32CC-209BEFF52A31</generatorID>
+<ownerDesignName>Diagram</ownerDesignName>
+<engineerTo>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+</engineerTo>
+<referedAttribute>D0DFC9A7-7432-F79A-6E17-BED97D682E3B</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID_Osoby" id="E67B25E1-E32B-33EE-C37A-89B2DA145342">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:26:05 UTC</createdTime>
+<generatorID>11BC9427-894A-4A04-D83A-98B48FC02999</generatorID>
+<ownerDesignName>Diagram</ownerDesignName>
+<engineerTo>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+</engineerTo>
+<referedAttribute>3CA74DA6-49E3-329B-5BD6-EB867EA4C23D</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID_Statusu" id="7E3A67A3-4DBD-48F2-BEFA-9BD181945A48">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:27:21 UTC</createdTime>
+<generatorID>985C9244-2019-FBE5-47A7-110A772C49E6</generatorID>
+<ownerDesignName>Diagram</ownerDesignName>
+<engineerTo>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+</engineerTo>
+<referedAttribute>5114A83D-DEA7-B684-3E08-6210379F45C3</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="7DBDF4A6-9D78-3A6D-6CC5-B17C311D4BCB" name="Zlecenie PK">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:00:56 UTC</createdTime>
+<ownerDesignName>Diagram</ownerDesignName>
+<engineerTo>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>697709E7-C87D-436D-91DB-1884E719820F</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

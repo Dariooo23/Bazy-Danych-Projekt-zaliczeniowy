@@ -1,0 +1,152 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="D3EB34A0-7604-F7BD-0B10-EAAD2DD7233C" name="HistoriaZmian">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>33161609-9DFE-A8CF-D6E9-60A4697F9FE8</generatorID>
+<ownerDesignName>Diagram</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_Historii" id="5EBED2B1-E4B7-B787-7DD4-229F435EDADB">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>B0C89A00-3D89-1EF6-091D-E65F3483EC6C</generatorID>
+<ownerDesignName>Diagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DataZmiany" id="6322CD1D-2FED-E738-F8C5-BE82D7DE1470">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>44386B0D-2E97-2231-6D5F-A539C1BA3B4C</generatorID>
+<ownerDesignName>Diagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Zlecenie_ID_Zlecenia" id="893D8238-FC58-0ACF-FDC5-BF0234F8A59E">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>A6292758-C64D-B476-9D13-A31E1BF827B6</generatorID>
+<ownerDesignName>Diagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="DD8840F2-00CA-FB9F-D2A9-A9BDE3A8A857" referredColumn="E34CADBB-4546-F8C3-6F96-D5292C26FCE0"/>
+</associations>
+</Column>
+<Column name="StatusyZlecen_ID_Statusu" id="564994E8-FEE6-6438-8C48-CC5076F73C1A">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>0DB97C25-F46A-68A6-4729-9183D9AD039F</generatorID>
+<ownerDesignName>Diagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="EB115417-4C60-987E-5B5C-7C15FD7BD218" referredColumn="7E86C5F9-2876-1FE9-321D-34E31F9F6212"/>
+</associations>
+</Column>
+<Column name="StatusyZlecen_ID_Statusu2" id="7C007607-FF6E-B936-2124-33365E4B47BC">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>D68C0DD9-166E-3169-E5A9-1E679A01DF36</generatorID>
+<ownerDesignName>Diagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="02AC1151-0503-A374-3A2B-45BBF50E30E5" referredColumn="7E86C5F9-2876-1FE9-321D-34E31F9F6212"/>
+</associations>
+</Column>
+<Column name="Pracownik_ID_Osoby" id="861C4FFC-CB5A-C4CC-D814-A4E4793E1C46">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>D75E0419-2E84-E84C-D9F0-1042E19CD013</generatorID>
+<ownerDesignName>Diagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="84D2A758-E925-3F4E-CD28-40CAD21AB8CC" referredColumn="72ABA4CE-2E99-7CCA-D4EB-DFBE1790729D"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="AFBE420A-2116-F77C-C185-A88B8166AACE" name="HistoriaZmian_PK">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>EAABBEEF-283A-630C-A313-0AF445283009</generatorID>
+<ownerDesignName>Diagram</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5EBED2B1-E4B7-B787-7DD4-229F435EDADB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C8F9EA68-A141-7FDE-2155-FD9A51B9892C" name="HistoriaZmian_Zlecenie_FK">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>83817DBF-5DBC-ADCC-E7CD-BD286CDEFDCA</generatorID>
+<ownerDesignName>Diagram</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="893D8238-FC58-0ACF-FDC5-BF0234F8A59E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1768A7DA-11F7-77F0-A3A8-5516DBC19428" name="HistoriaZmian_StatusyZlecen_FK">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>C672D33B-AA0F-E7AB-4343-A9FC61C88F72</generatorID>
+<ownerDesignName>Diagram</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="564994E8-FEE6-6438-8C48-CC5076F73C1A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E0EB740E-F835-76FB-BFDF-DC744F6F0636" name="HistoriaZmian_StatusyZlecen_FKv2">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>1579FDEB-12D0-3D01-545E-99C292D72927</generatorID>
+<ownerDesignName>Diagram</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7C007607-FF6E-B936-2124-33365E4B47BC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C0609A1E-E468-08CF-4DE2-B5D0E590D73B" name="HistoriaZmian_Pracownik_FK">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>59E5D34D-4D5F-24A1-0E2D-E8BD3D19E6F7</generatorID>
+<ownerDesignName>Diagram</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="861C4FFC-CB5A-C4CC-D814-A4E4793E1C46"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

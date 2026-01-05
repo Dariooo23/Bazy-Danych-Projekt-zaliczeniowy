@@ -1,0 +1,99 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="FFDBE775-0847-D8FF-CBE5-3881C25EC512" name="PozycjeZlecenia_Czesci">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:04:52 UTC</createdTime>
+<ownerDesignName>Diagram</ownerDesignName>
+<engineerTo>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ID_PozycjiCzesci" id="B46EB083-9F29-06B5-3792-84719E5175FE">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:05:15 UTC</createdTime>
+<ownerDesignName>Diagram</ownerDesignName>
+<engineerTo>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Ilosc" id="7C414700-078C-B4FB-D7BD-33B5CC418A54">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:05:15 UTC</createdTime>
+<ownerDesignName>Diagram</ownerDesignName>
+<engineerTo>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="CenaWChwiliSprzedazy" id="9778193B-6C4C-C164-6C8C-8AB5E287D08F">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:05:15 UTC</createdTime>
+<ownerDesignName>Diagram</ownerDesignName>
+<engineerTo>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT043</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<dataTypeScale>10</dataTypeScale>
+<ownDataTypeParameters>,2,10</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID_Zlecenia" id="EE2CACC6-2705-F236-FC5D-280CFF0A89CE">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:23:03 UTC</createdTime>
+<generatorID>CF9F092D-D563-EFC7-96D9-4A9E224AD224</generatorID>
+<ownerDesignName>Diagram</ownerDesignName>
+<engineerTo>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+</engineerTo>
+<referedAttribute>697709E7-C87D-436D-91DB-1884E719820F</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID_Czesci" id="52C090F4-B46D-729E-AE85-855C264E6CEE">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:23:31 UTC</createdTime>
+<generatorID>3C3BB25D-71CF-73F0-8BE6-C63144E322BB</generatorID>
+<ownerDesignName>Diagram</ownerDesignName>
+<engineerTo>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+</engineerTo>
+<referedAttribute>2365D1D2-371F-99DC-6B2F-F2329EBC979C</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="2B40E4B1-1A00-40AC-6965-FD6ABCC0AE53" name="PozycjeZlecenia_Czesci PK">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:05:25 UTC</createdTime>
+<ownerDesignName>Diagram</ownerDesignName>
+<engineerTo>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>B46EB083-9F29-06B5-3792-84719E5175FE</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
