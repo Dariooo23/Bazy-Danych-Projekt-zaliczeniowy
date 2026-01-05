@@ -1,0 +1,142 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="92CAFB97-87DA-DC32-D08F-43F075D8D203" name="Osoba">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 10:09:55 UTC</createdTime>
+<ownerDesignName>Diagramy</ownerDesignName>
+<engineerTo>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ID_Osoby" id="3CA74DA6-49E3-329B-5BD6-EB867EA4C23D">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 10:10:03 UTC</createdTime>
+<ownerDesignName>Diagramy</ownerDesignName>
+<engineerTo>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+</engineerTo>
+<sourceType>System</sourceType>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<source>Integer</source>
+</Attribute>
+<Attribute name="Imie" id="E106B9F3-FDB4-76C5-4081-52B79B99DB64">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 10:10:07 UTC</createdTime>
+<ownerDesignName>Diagramy</ownerDesignName>
+<engineerTo>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Nazwisko" id="0A29E9CF-635B-36FE-759A-7E3EF36193C8">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 10:10:07 UTC</createdTime>
+<ownerDesignName>Diagramy</ownerDesignName>
+<engineerTo>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Telefon" id="6EB4835B-6027-A2B2-5F0A-53058BCB390D">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 10:10:08 UTC</createdTime>
+<ownerDesignName>Diagramy</ownerDesignName>
+<engineerTo>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Email" id="6B558810-C5F2-27D8-0A41-170D2FE91853">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 10:10:08 UTC</createdTime>
+<ownerDesignName>Diagramy</ownerDesignName>
+<engineerTo>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Ulica" id="F9C2B150-C254-E765-6711-DBB30479D2CC">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 10:10:08 UTC</createdTime>
+<ownerDesignName>Diagramy</ownerDesignName>
+<engineerTo>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Miasto" id="35E1D268-4C1E-EAA9-E830-F5426C82C7DD">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 10:10:08 UTC</createdTime>
+<ownerDesignName>Diagramy</ownerDesignName>
+<engineerTo>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="KodPocztowy" id="636A1FB1-2019-682C-1143-166AAAF16E35">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 10:10:09 UTC</createdTime>
+<ownerDesignName>Diagramy</ownerDesignName>
+<engineerTo>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<dataTypeSize>6 CHAR</dataTypeSize>
+<ownDataTypeParameters>6 CHAR,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="A4ED9B54-6E3D-68D8-6E7B-D59B080BDA33" name="Osoba PK">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 10:10:41 UTC</createdTime>
+<ownerDesignName>Diagramy</ownerDesignName>
+<engineerTo>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>3CA74DA6-49E3-329B-5BD6-EB867EA4C23D</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

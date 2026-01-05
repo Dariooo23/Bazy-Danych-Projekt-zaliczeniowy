@@ -1,0 +1,137 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="4F70FF5A-8F28-B750-7711-54BEB21C5F2A" name="Pojazd">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 10:38:25 UTC</createdTime>
+<ownerDesignName>Diagramy</ownerDesignName>
+<engineerTo>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ID_Pojazdu" id="D0DFC9A7-7432-F79A-6E17-BED97D682E3B">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 10:38:37 UTC</createdTime>
+<ownerDesignName>Diagramy</ownerDesignName>
+<engineerTo>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="VIN" id="C9B2B3CE-9756-B537-A7C1-0F70EB3B93E3">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 10:38:37 UTC</createdTime>
+<ownerDesignName>Diagramy</ownerDesignName>
+<engineerTo>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<dataTypeSize>17 CHAR</dataTypeSize>
+<ownDataTypeParameters>17 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="NrRejestracyjny" id="C4821809-312C-4C0D-3D46-52A3B8AA6AB1">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 10:38:38 UTC</createdTime>
+<ownerDesignName>Diagramy</ownerDesignName>
+<engineerTo>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="RokProdukcji" id="EFA6B0A4-6E16-E0E1-524C-0AC3D96F70A0">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 10:38:38 UTC</createdTime>
+<ownerDesignName>Diagramy</ownerDesignName>
+<engineerTo>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="PojemnoscSilnika" id="7E0F8234-374A-797F-CB5F-667131A6BFD2">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 10:38:39 UTC</createdTime>
+<ownerDesignName>Diagramy</ownerDesignName>
+<engineerTo>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID_Modelu" id="6B5A550E-D07C-72E8-3DB0-A546FBDA527D">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:15:58 UTC</createdTime>
+<generatorID>D68635B4-CBE9-26E8-817B-1D503FFE6F4E</generatorID>
+<ownerDesignName>Diagramy</ownerDesignName>
+<engineerTo>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+</engineerTo>
+<referedAttribute>A0B3F041-3A9B-2BE2-F72C-F2DB417D4CEE</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID_Osoby" id="4C81DAEF-B11D-1062-CA59-EE6B29431E10">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:21:46 UTC</createdTime>
+<generatorID>03DF0254-2B0D-C5D7-1FEA-71A754115DBB</generatorID>
+<ownerDesignName>Diagramy</ownerDesignName>
+<engineerTo>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+</engineerTo>
+<referedAttribute>3CA74DA6-49E3-329B-5BD6-EB867EA4C23D</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="4CDFB343-329D-A89C-E96C-8449A42D1037" name="Pojazd PK">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 10:38:44 UTC</createdTime>
+<ownerDesignName>Diagramy</ownerDesignName>
+<engineerTo>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>D0DFC9A7-7432-F79A-6E17-BED97D682E3B</attributeRef>
+</usedAttributes>
+</identifier>
+<identifier id="8ECEF671-58DC-9C1A-07A7-51DE5EB8AA84" name="UID_Pojazd_VIN">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 10:40:20 UTC</createdTime>
+<ownerDesignName>Diagramy</ownerDesignName>
+<engineerTo>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+</engineerTo>
+<newElementsIDs>C9B2B3CE-9756-B537-A7C1-0F70EB3B93E3</newElementsIDs>
+<usedAttributes>
+<attributeRef>C9B2B3CE-9756-B537-A7C1-0F70EB3B93E3</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

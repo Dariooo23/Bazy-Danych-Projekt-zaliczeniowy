@@ -1,0 +1,98 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="2C32C79B-793B-0ABE-378E-374B6405AE86" name="Model">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 10:36:42 UTC</createdTime>
+<ownerDesignName>Diagramy</ownerDesignName>
+<engineerTo>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ID_Modelu" id="A0B3F041-3A9B-2BE2-F72C-F2DB417D4CEE">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 10:36:49 UTC</createdTime>
+<ownerDesignName>Diagramy</ownerDesignName>
+<engineerTo>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="NazwaModelu" id="E310C21C-5E6E-7396-9245-99D3D28C6033">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 10:36:49 UTC</createdTime>
+<ownerDesignName>Diagramy</ownerDesignName>
+<engineerTo>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="RokProdukcjiOd" id="F1892F01-5172-CA78-FBAD-74B5D329A958">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 10:36:49 UTC</createdTime>
+<ownerDesignName>Diagramy</ownerDesignName>
+<engineerTo>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="RokProdukcjiDo" id="51E4B299-4050-C47C-8B7D-21BA5027CCA1">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 10:36:49 UTC</createdTime>
+<ownerDesignName>Diagramy</ownerDesignName>
+<engineerTo>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID_Marki" id="69F2EC8C-4A35-D64D-C3DA-18C9E2F3B56B">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:13:38 UTC</createdTime>
+<generatorID>6D06D1D3-5E0D-4C77-302E-BA4728DD6B0F</generatorID>
+<ownerDesignName>Diagramy</ownerDesignName>
+<engineerTo>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+</engineerTo>
+<referedAttribute>7F22421E-E7AF-E773-CFCC-9B3E67FA3E47</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="01B464FA-81D6-345F-CFE2-952F5E40B03F" name="Model PK">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 10:37:37 UTC</createdTime>
+<ownerDesignName>Diagramy</ownerDesignName>
+<engineerTo>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>A0B3F041-3A9B-2BE2-F72C-F2DB417D4CEE</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

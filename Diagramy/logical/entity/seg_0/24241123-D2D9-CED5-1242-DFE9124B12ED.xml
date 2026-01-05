@@ -1,0 +1,116 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="24241123-D2D9-CED5-1242-DFE9124B12ED" name="PozycjeZlecenia_Uslugi">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:05:59 UTC</createdTime>
+<ownerDesignName>Diagramy</ownerDesignName>
+<engineerTo>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ID_PozycjiUslugi" id="19ED66B7-95F6-27B9-8F28-3642430170BC">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:06:08 UTC</createdTime>
+<ownerDesignName>Diagramy</ownerDesignName>
+<engineerTo>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Krotnosc" id="49C2DDA5-4DE5-1761-B25F-AD582FD07DA8">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:06:08 UTC</createdTime>
+<ownerDesignName>Diagramy</ownerDesignName>
+<engineerTo>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="RabatNaUsluge" id="4FBD2AE6-8B4B-6EB8-9191-708C9CDA31D3">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:06:08 UTC</createdTime>
+<ownerDesignName>Diagramy</ownerDesignName>
+<engineerTo>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<dataTypeScale>3</dataTypeScale>
+<ownDataTypeParameters>,2,3</ownDataTypeParameters>
+</Attribute>
+<Attribute name="CenaKoncowa" id="7F500699-937D-74DC-B044-E8FF8F8311CE">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:06:09 UTC</createdTime>
+<ownerDesignName>Diagramy</ownerDesignName>
+<engineerTo>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT043</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<dataTypeScale>10</dataTypeScale>
+<ownDataTypeParameters>,2,10</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID_Zlecenia" id="40C6177E-D796-96AE-9939-164108625839">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:23:54 UTC</createdTime>
+<generatorID>7B623705-48F3-C5A7-5DB1-2780AC6E9BFA</generatorID>
+<ownerDesignName>Diagramy</ownerDesignName>
+<engineerTo>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+</engineerTo>
+<referedAttribute>697709E7-C87D-436D-91DB-1884E719820F</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID_Uslugi" id="CCA2A3F5-8FB1-0A6C-414B-F5B64CB261E9">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:24:12 UTC</createdTime>
+<generatorID>AE781C87-6794-7045-2299-63EA67852AA8</generatorID>
+<ownerDesignName>Diagramy</ownerDesignName>
+<engineerTo>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+</engineerTo>
+<referedAttribute>626A8A15-E127-354D-E5FA-1BEFF80B2DF7</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="16218EAE-9276-1B27-BB05-95D0841C6CC8" name="PozycjeZlecenia_Uslugi PK">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:06:14 UTC</createdTime>
+<ownerDesignName>Diagramy</ownerDesignName>
+<engineerTo>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>19ED66B7-95F6-27B9-8F28-3642430170BC</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

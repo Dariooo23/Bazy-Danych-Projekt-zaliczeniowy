@@ -1,0 +1,114 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="2B3DFC12-8A50-8436-8C9B-BE44878A09FE" name="Pracownik">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>C6971A09-2E82-A097-EB87-7C9CF5574771</generatorID>
+<ownerDesignName>Diagramy</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_Osoby" id="72ABA4CE-2E99-7CCA-D4EB-DFBE1790729D">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>3CA74DA6-49E3-329B-5BD6-EB867EA4C23D</generatorID>
+<ownerDesignName>Diagramy</ownerDesignName>
+<sourceType>System</sourceType>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D246917C-FDD8-9E26-494B-66D00B26F446" referredColumn="01458A5B-0D5E-8DFB-E261-B59CBDA3B9E4"/>
+</associations>
+</Column>
+<Column name="DataZatrudnienia" id="522638A5-95B0-0FAA-D9A1-DB186505BE12">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>E631D5D0-4D56-07F7-C2E6-C7A69E1AD0F3</generatorID>
+<ownerDesignName>Diagramy</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PensjaPodstawowa" id="9684A804-9397-5813-6EA6-FC033F4479B8">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>2F33DB77-EE09-254A-981B-037590DF9604</generatorID>
+<ownerDesignName>Diagramy</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT043</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<dataTypeScale>10</dataTypeScale>
+<ownDataTypeParameters>,2,10</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NrKontaBankowego" id="ABED0962-4C4F-6584-AC43-DCED39AF4960">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>25DE34CD-C70D-EE6E-C7E4-1E3FFBE5EA8A</generatorID>
+<ownerDesignName>Diagramy</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<dataTypeSize>32 CHAR</dataTypeSize>
+<ownDataTypeParameters>32 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Stanowisko_ID_Stanowiska" id="2963F310-460A-7CEB-1058-C8D0909B79CD">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>8BAB9EDB-C43B-42D6-3F38-B1C1D3C0BEA9</generatorID>
+<ownerDesignName>Diagramy</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A04C98A3-2BFE-F97A-46BB-82558EB582E6" referredColumn="68237B3B-C409-A289-DFE1-15F546A23320"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="E38AD4E4-9045-E994-6C36-BA2857CBEA4B" name="Pracownik_PK">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>A4ED9B54-6E3D-68D8-6E7B-D59B080BDA33</generatorID>
+<ownerDesignName>Diagramy</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="72ABA4CE-2E99-7CCA-D4EB-DFBE1790729D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D664DFF5-A99B-02E3-AB07-200A554BAE21" name="Pracownik_Osoba_FK">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>630605C1-E9F5-9EFF-9305-E86704369699</generatorID>
+<ownerDesignName>Diagramy</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="72ABA4CE-2E99-7CCA-D4EB-DFBE1790729D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="977C3A22-CF07-BC08-7B2A-F42A3300DEE8" name="Pracownik_Stanowisko_FK">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>0B75A56A-C0D2-DCAC-4DC7-0E7938D41937</generatorID>
+<ownerDesignName>Diagramy</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2963F310-460A-7CEB-1058-C8D0909B79CD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

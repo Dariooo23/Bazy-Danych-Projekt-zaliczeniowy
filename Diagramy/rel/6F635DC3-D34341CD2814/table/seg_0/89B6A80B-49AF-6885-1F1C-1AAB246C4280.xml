@@ -1,0 +1,113 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="89B6A80B-49AF-6885-1F1C-1AAB246C4280" name="PozycjeZlecenia_Czesci">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>FFDBE775-0847-D8FF-CBE5-3881C25EC512</generatorID>
+<ownerDesignName>Diagramy</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_PozycjiCzesci" id="CC2BE1A1-5B4D-9DA0-A941-91997AEE60EF">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>B46EB083-9F29-06B5-3792-84719E5175FE</generatorID>
+<ownerDesignName>Diagramy</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Ilosc" id="214C5B3B-D915-CE98-4F71-AA0E09967606">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>7C414700-078C-B4FB-D7BD-33B5CC418A54</generatorID>
+<ownerDesignName>Diagramy</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CenaWChwiliSprzedazy" id="7A9988C4-52BE-A71C-ACF3-D130781787C8">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>9778193B-6C4C-C164-6C8C-8AB5E287D08F</generatorID>
+<ownerDesignName>Diagramy</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT043</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<dataTypeScale>10</dataTypeScale>
+<ownDataTypeParameters>,2,10</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Zlecenie_ID_Zlecenia" id="3D0398C1-961A-29BE-3FE1-D6148A684208">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>EE2CACC6-2705-F236-FC5D-280CFF0A89CE</generatorID>
+<ownerDesignName>Diagramy</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0F609702-582F-9A50-FAF2-DE135CB0DC7F" referredColumn="E34CADBB-4546-F8C3-6F96-D5292C26FCE0"/>
+</associations>
+</Column>
+<Column name="MagazynCzesc_ID_Czesci" id="BB9E4E49-0172-8D9B-6E6E-4F822D8FB321">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>52C090F4-B46D-729E-AE85-855C264E6CEE</generatorID>
+<ownerDesignName>Diagramy</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E2927742-D85A-8C0F-C1D3-54421B7B6187" referredColumn="A28C95FC-D409-B9F2-330A-EA20C9124C34"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="F471F430-B9F8-8299-8CC6-533AF6B20725" name="PozycjeZlecenia_Czesci_PK">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>2B40E4B1-1A00-40AC-6965-FD6ABCC0AE53</generatorID>
+<ownerDesignName>Diagramy</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CC2BE1A1-5B4D-9DA0-A941-91997AEE60EF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1BCFA1F4-1710-CA74-C4FB-34C03ABD3928" name="PozycjeZlecenia_Czesci_Zlecenie_FK">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>CF9F092D-D563-EFC7-96D9-4A9E224AD224</generatorID>
+<ownerDesignName>Diagramy</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3D0398C1-961A-29BE-3FE1-D6148A684208"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="BA816591-D4B5-DD1A-8B35-124C86625AF7" name="PozycjeZlecenia_Czesci_MagazynCzesc_FK">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>3C3BB25D-71CF-73F0-8BE6-C63144E322BB</generatorID>
+<ownerDesignName>Diagramy</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BB9E4E49-0172-8D9B-6E6E-4F822D8FB321"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

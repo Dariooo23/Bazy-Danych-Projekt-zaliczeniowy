@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="E2927742-D85A-8C0F-C1D3-54421B7B6187" containerWithKeyObject="89B6A80B-49AF-6885-1F1C-1AAB246C4280" localFKIndex="BA816591-D4B5-DD1A-8B35-124C86625AF7" name="PozycjeZlecenia_Czesci_MagazynCzesc_FK">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>3C3BB25D-71CF-73F0-8BE6-C63144E322BB</generatorID>
+<ownerDesignName>Diagramy</ownerDesignName>
+<referredTableLongName>MagazynCzesc</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>C559AC14-0CC2-1EF9-1C2E-3EF9599E70C1</referredTableID>
+<keyObject>97776AC6-17D3-0565-B4DA-AE5A0274849C</keyObject>
+<referredKeyID>97776AC6-17D3-0565-B4DA-AE5A0274849C</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>ID_Czesci</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

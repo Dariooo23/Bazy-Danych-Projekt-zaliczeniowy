@@ -1,0 +1,148 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="07EE3CD0-55AF-D492-E03D-2BCE4BFF6B0F" name="Pojazd">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>4F70FF5A-8F28-B750-7711-54BEB21C5F2A</generatorID>
+<ownerDesignName>Diagramy</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_Pojazdu" id="F2B05F79-6E6F-44D4-8F0D-30DE8E3887F3">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>D0DFC9A7-7432-F79A-6E17-BED97D682E3B</generatorID>
+<ownerDesignName>Diagramy</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="VIN" id="BA2640F6-99A3-62BD-8FB2-290AF883B489">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>C9B2B3CE-9756-B537-A7C1-0F70EB3B93E3</generatorID>
+<ownerDesignName>Diagramy</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<dataTypeSize>17 CHAR</dataTypeSize>
+<ownDataTypeParameters>17 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NrRejestracyjny" id="736AA34E-CED0-78AD-6669-9129392D1874">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>C4821809-312C-4C0D-3D46-52A3B8AA6AB1</generatorID>
+<ownerDesignName>Diagramy</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="RokProdukcji" id="538D265D-F5CA-CB4C-BD47-F0CFAA71D6D9">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>EFA6B0A4-6E16-E0E1-524C-0AC3D96F70A0</generatorID>
+<ownerDesignName>Diagramy</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PojemnoscSilnika" id="08527BF3-990D-49B2-27E9-42418A831F4A">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>7E0F8234-374A-797F-CB5F-667131A6BFD2</generatorID>
+<ownerDesignName>Diagramy</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Model_ID_Modelu" id="DF3AEFB7-D273-440D-6E53-0DCA4C698EDE">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>6B5A550E-D07C-72E8-3DB0-A546FBDA527D</generatorID>
+<ownerDesignName>Diagramy</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="F76329FE-C7A4-6FAB-E007-1D15406D3B66" referredColumn="6236CC59-DD26-6B5B-94E4-3194E8B3F790"/>
+</associations>
+</Column>
+<Column name="Klient_ID_Osoby" id="8F34508B-8A46-5FB2-CBDE-81F1204D0895">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>4C81DAEF-B11D-1062-CA59-EE6B29431E10</generatorID>
+<ownerDesignName>Diagramy</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="1BFFFC28-B8DC-ED6A-CC71-F1A0F067129E" referredColumn="2ECCA83A-5B34-25C7-315F-2F65E813AB98"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="6D770B14-9709-94AF-D4EE-D745BA34E861" name="Pojazd_PK">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>4CDFB343-329D-A89C-E96C-8449A42D1037</generatorID>
+<ownerDesignName>Diagramy</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F2B05F79-6E6F-44D4-8F0D-30DE8E3887F3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="7656200D-7EF3-9A40-D272-1B439463E44C" name="Pojazd_VIN_UN">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>8ECEF671-58DC-9C1A-07A7-51DE5EB8AA84</generatorID>
+<ownerDesignName>Diagramy</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BA2640F6-99A3-62BD-8FB2-290AF883B489"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="BC95F49D-B94D-9132-D26A-5A0DED4534F3" name="Pojazd_Model_FK">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>D68635B4-CBE9-26E8-817B-1D503FFE6F4E</generatorID>
+<ownerDesignName>Diagramy</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DF3AEFB7-D273-440D-6E53-0DCA4C698EDE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1720CD23-0E92-BCFA-15E5-BF410F1440A1" name="Pojazd_Klient_FK">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>03DF0254-2B0D-C5D7-1FEA-71A754115DBB</generatorID>
+<ownerDesignName>Diagramy</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8F34508B-8A46-5FB2-CBDE-81F1204D0895"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

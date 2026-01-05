@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="957B6932-ED72-91C0-5B77-2FE860414E65" containerWithKeyObject="C559AC14-0CC2-1EF9-1C2E-3EF9599E70C1" localFKIndex="E9AACA44-23E2-A288-3FB2-DD559D2F5CED" name="MagazynCzesc_Dostawca_FK">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-05 11:34:28 UTC</createdTime>
+<generatorID>1E94865F-3ABA-411A-2DF9-5FC5B18C6D6B</generatorID>
+<ownerDesignName>Diagramy</ownerDesignName>
+<referredTableLongName>Dostawca</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>A79B2E76-26EB-D534-D0AC-F899C0999316</referredTableID>
+<keyObject>8C12C49D-5038-9F2C-D7AD-10B43EF3C38D</keyObject>
+<referredKeyID>8C12C49D-5038-9F2C-D7AD-10B43EF3C38D</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>ID_Dostawcy</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>
