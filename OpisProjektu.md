@@ -590,7 +590,7 @@ SELECT z.NumerZlecenia, z.DataPrzyjecia, z.OpisUsterki, s.NazwaStatusu
 FROM Zlecenie z
 JOIN Pojazd p ON z.ID_Pojazdu = p.ID_Pojazdu
 JOIN StatusyZlecen s ON z.ID_AktualnegoStatusu = s.ID_Statusu
-WHERE p.NrRejestracyjny = 'KR12345';
+WHERE p.NrRejestracyjny = ?;
 ```
 
 ### 10.2 Lista zleceń klienta
