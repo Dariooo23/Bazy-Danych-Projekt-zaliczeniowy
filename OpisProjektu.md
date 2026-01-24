@@ -735,14 +735,14 @@ sqlplus uzytkownik/haslo@baza
 
 | Wymaganie                 | Minimum        | Zrealizowano            | 
 | ------------------------- | -------------- | ----------------------- | 
-| Tabele                    | 16 (8×2 osoby) | **17**                  | 
+| Tabele                    | 16 (8×2 osoby) | 17                      | 
 | Schemat dziedziczenia     | Tak            | Class Table Inheritance | 
 | Atrybuty zmienne w czasie | Tak            | Tabela HistoriaZmian    | 
-| Widoki/funkcje            | 10             | **11** (7+4)            | 
-| Procedury składowane      | 5              | **6**                   | 
-| Wyzwalacze                | 5              | **7**                   | 
+| Widoki/funkcje            | 10             | 11 (7+4)                | 
+| Procedury składowane      | 5              | 6                       | 
+| Wyzwalacze                | 5              | 7                       | 
 | Strategia backupu         | Tak            | RMAN + Data Pump        | 
-| Indeksy                   | -              | **24**                  | 
+| Indeksy                   | -              | 24                      | 
 | Diagram ER                | Tak            | Tak                     | 
 | Schemat relacji           | Tak            | Tak                     | 
 | Więzy integralności       | Tak            | ~45 CHECK + UNIQUE      | 

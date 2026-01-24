@@ -1,13 +1,4 @@
 -- ============================================================================
--- SKRYPT TWORZĄCY WIDOKI I FUNKCJE
--- System Zarządzania Warsztatem Samochodowym
--- Data utworzenia: 2026-01-18
--- ============================================================================
--- WYMAGANIE: minimum 10 widoków/funkcji
--- Ten skrypt zawiera: 7 widoków + 4 funkcje = 11 obiektów
--- ============================================================================
-
--- ============================================================================
 -- WIDOK 1: v_ZleceniaAktywne
 -- Lista wszystkich aktywnych zleceń (nie wydane)
 -- ============================================================================
@@ -228,8 +219,6 @@ BEGIN
 END fn_GenerujNumerZlecenia;
 /
 
-COMMENT ON FUNCTION fn_GenerujNumerZlecenia IS 'Generuje unikalny numer zlecenia w formacie ZLC/RRRR/NNNNN';
-
 -- ============================================================================
 -- FUNKCJA 2: fn_ObliczWartoscZlecenia
 -- Oblicza całkowitą wartość zlecenia (usługi + części)
@@ -260,8 +249,6 @@ BEGIN
 END fn_ObliczWartoscZlecenia;
 /
 
-COMMENT ON FUNCTION fn_ObliczWartoscZlecenia IS 'Oblicza całkowitą wartość zlecenia sumując usługi i części';
-
 -- ============================================================================
 -- FUNKCJA 3: fn_PobierzRabatKlienta
 -- Pobiera stały rabat klienta na podstawie ID pojazdu
@@ -284,8 +271,6 @@ EXCEPTION
         RETURN 0;
 END fn_PobierzRabatKlienta;
 /
-
-COMMENT ON FUNCTION fn_PobierzRabatKlienta IS 'Pobiera stały rabat klienta na podstawie ID pojazdu';
 
 -- ============================================================================
 -- FUNKCJA 4: fn_SprawdzDostepnoscCzesci
@@ -314,17 +299,3 @@ EXCEPTION
         RETURN 'NIEZNANA CZESC';
 END fn_SprawdzDostepnoscCzesci;
 /
-
-COMMENT ON FUNCTION fn_SprawdzDostepnoscCzesci IS 'Sprawdza dostępność części w magazynie';
-
--- ============================================================================
--- PODSUMOWANIE
--- ============================================================================
--- Utworzono:
---   - 7 widoków (v_ZleceniaAktywne, v_PojazdyKlientow, v_MagazynNiskiStan,
---                v_PracownicyAktywni, v_HistoriaZlecenia, v_SzczegolyZlecenia,
---                v_RaportMiesieczny)
---   - 4 funkcje (fn_GenerujNumerZlecenia, fn_ObliczWartoscZlecenia,
---                fn_PobierzRabatKlienta, fn_SprawdzDostepnoscCzesci)
--- Łącznie: 11 obiektów (wymagane minimum 10)
--- ============================================================================

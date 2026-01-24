@@ -1,20 +1,3 @@
--- ============================================================================
--- SKRYPT TWORZĄCY INDEKSY
--- System Zarządzania Warsztatem Samochodowym
--- Data utworzenia: 2026-01-18
--- ============================================================================
--- INDEKSY przyspieszają wyszukiwanie danych kosztem wolniejszych operacji
--- INSERT/UPDATE/DELETE oraz dodatkowej przestrzeni dyskowej.
--- Tworzymy indeksy na:
---   - Kolumnach kluczy obcych (FK) - przyspieszają JOIN
---   - Kolumnach często używanych w WHERE (wyszukiwanie)
---   - Kolumnach używanych w ORDER BY
--- ============================================================================
-
--- ============================================================================
--- INDEKSY NA KLUCZACH OBCYCH (przyspieszają JOIN i kaskadowe usuwanie)
--- ============================================================================
-
 -- Model
 CREATE INDEX IDX_Model_Marka ON Model(ID_Marki);
 
@@ -92,12 +75,3 @@ CREATE INDEX IDX_Pracownik_DataZwolnienia ON Pracownik(DataZwolnienia);
 -- INDEKS FUNKCYJNY - wyszukiwanie po roku zlecenia
 -- ============================================================================
 CREATE INDEX IDX_Zlecenie_Rok ON Zlecenie(EXTRACT(YEAR FROM DataPrzyjecia));
-
--- ============================================================================
--- PODSUMOWANIE UTWORZONYCH INDEKSÓW
--- ============================================================================
--- Łącznie: 24 indeksów
--- - 18 indeksów na kluczach obcych (FK)
--- - 5 indeksów na kolumnach wyszukiwania
--- - 1 indeks funkcyjny
--- ============================================================================

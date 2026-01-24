@@ -1,20 +1,3 @@
--- ============================================================================
--- SKRYPT TWORZĄCY BAZĘ DANYCH: SYSTEM ZARZĄDZANIA WARSZTATEM SAMOCHODOWYM
--- Autor: Projekt BD
--- Data utworzenia: 2026-01-18
--- Baza danych: Oracle SQL
--- ============================================================================
--- SPEŁNIONE WYMAGANIA W TYM SKRYPCIE:
---   ✓ 17 tabel (wymagane min. 16 = 8 na osobę × 2 osoby)
---   ✓ Schemat dziedziczenia: Class Table Inheritance (Osoba → Klient, Pracownik)
---   ✓ Atrybuty zmieniające się w czasie: tabela HistoriaZmian
---   ✓ Klucze główne, obce, ograniczenia CHECK, UNIQUE
--- ============================================================================
-
--- ============================================================================
--- USUWANIE ISTNIEJĄCYCH OBIEKTÓW (w odwrotnej kolejności zależności)
--- ============================================================================
-
 -- Usuwanie tabel (jeśli istnieją)
 BEGIN
     FOR t IN (SELECT table_name FROM user_tables WHERE table_name IN (
@@ -231,7 +214,7 @@ CREATE TABLE Pojazd (
     -- Ograniczenia CHECK
     CONSTRAINT CHK_Pojazd_VIN CHECK (LENGTH(VIN) = 17 AND REGEXP_LIKE(VIN, '^[A-HJ-NPR-Z0-9]{17}$')),
     CONSTRAINT CHK_Pojazd_Rejestracja CHECK (REGEXP_LIKE(NrRejestracyjny, '^[A-Z0-9]{4,8}$')),
-    CONSTRAINT CHK_Pojazd_Rok CHECK (RokProdukcji IS NULL OR (RokProdukcji >= 1886 AND RokProdukcji <= EXTRACT(YEAR FROM SYSDATE) + 1)),
+    CONSTRAINT CHK_Pojazd_Rok CHECK (RokProdukcji IS NULL OR (RokProdukcji >= 1886 AND RokProdukcji <= 2030)),
     CONSTRAINT CHK_Pojazd_Pojemnosc CHECK (PojemnoscSilnika IS NULL OR (PojemnoscSilnika >= 50 AND PojemnoscSilnika <= 20000))
 );
 
@@ -666,74 +649,3 @@ INSERT INTO KategoriaCzesci (ID_Kategorii, NazwaKategorii, Opis) VALUES
     (SEQ_KATEGORIACZESCI.NEXTVAL, 'Rozrząd', 'Paski, łańcuchy, napinacze');
 
 COMMIT;
-
--- ============================================================================
--- PODSUMOWANIE UTWORZONYCH OBIEKTÓW
--- ============================================================================
-/*
-================================================================================
-                        PODSUMOWANIE SKRYPTU DDL
-================================================================================
-
-TABELE (17):
-  1.  Marka                    - marki pojazdów
-  2.  Model                    - modele pojazdów
-  3.  Stanowisko               - stanowiska pracy
-  4.  Osoba                    - NADTYP (dziedziczenie Class Table)
-  5.  Klient                   - PODTYP (dziedziczy z Osoba)
-  6.  Pracownik                - PODTYP (dziedziczy z Osoba)
-  7.  Pojazd                   - pojazdy klientów
-  8.  StatusyZlecen            - słownik statusów
-  9.  Zlecenie                 - zlecenia serwisowe
-  10. HistoriaZmian            - historia zmian statusów (ATRYBUTY CZASOWE)
-  11. KatalogUslug             - katalog usług
-  12. PozycjeZlecenia_Uslugi   - pozycje zleceń (usługi)
-  13. KategoriaCzesci          - kategorie części
-  14. Dostawca                 - dostawcy
-  15. MagazynCzesc             - magazyn części
-  16. PozycjeZlecenia_Czesci   - pozycje zleceń (części)
-  17. Dostawy                  - rejestr dostaw
-
-SEKWENCJE (16):
-  Dla każdej tabeli + SEQ_NUMER_ZLECENIA
-
-KLUCZE OBCE (19):
-  Wszystkie relacje między tabelami, w tym dziedziczenie 1:1
-
-OGRANICZENIA CHECK (~45):
-  - Walidacja VIN (17 znaków, format bez I,O,Q)
-  - Walidacja NIP (10 cyfr)
-  - Walidacja Email (format RFC)
-  - Walidacja Telefonu (format międzynarodowy)
-  - Walidacja Kodu pocztowego (XX-XXX)
-  - Walidacja Nr konta bankowego (26 cyfr)
-  - Walidacja numerów zleceń (ZLC/RRRR/NNNNN)
-  - Walidacja dat (DataOdbioru >= DataPrzyjecia)
-  - Walidacja wartości liczbowych (>= 0)
-  - Walidacja rabatów (0-100)
-  - Walidacja marży (CenaSprzedazy >= CenaZakupu)
-
-================================================================================
-                     SPEŁNIONE WYMAGANIA PROJEKTOWE
-================================================================================
-
-✓ Min. 16 tabel (8 na osobę × 2 osoby)     -> JEST: 17 tabel
-✓ Schemat dziedziczenia                     -> JEST: Class Table Inheritance
-                                                    (Osoba → Klient, Pracownik)
-✓ Atrybuty zmieniające się w czasie         -> JEST: HistoriaZmian
-✓ Poprawne klucze główne i obce             -> JEST: PK + 19 FK
-✓ Ograniczenia integralności                -> JEST: ~45 CHECK constraints
-
-================================================================================
-                     DO ZREALIZOWANIA W KOLEJNYCH FAZACH
-================================================================================
-
-○ 10 widoków lub funkcji                    -> FAZA 3
-○ 5 procedur składowanych                   -> FAZA 4
-○ 5 wyzwalaczy                              -> FAZA 5
-○ Strategia kopii zapasowych                -> FAZA 6
-○ Indeksy                                   -> FAZA 2
-○ Dokumentacja PDF                          -> FAZA 7
-
-================================================================================
-*/
