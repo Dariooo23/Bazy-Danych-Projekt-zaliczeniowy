@@ -19,11 +19,11 @@ Celem projektu jest stworzenie kompleksowej bazy danych dla warsztatu samochodow
 
 ### 1.2 Główne założenia
 
-1. **Wielopoziomowa obsługa użytkowników** - system rozróżnia klientów i pracowników poprzez schemat dziedziczenia
-2. **Pełna audytowalność** - każda zmiana statusu zlecenia jest rejestrowana w tabeli historii (atrybuty zmienne w czasie)
-3. **Integralność danych** - rozbudowany system więzów CHECK, UNIQUE i kluczy obcych
-4. **Automatyzacja** - wyzwalacze automatyzują rutynowe operacje (generowanie numerów, aktualizacja stanów)
-5. **Skalowalność** - indeksy na kluczach obcych i kolumnach wyszukiwania zapewniają wydajność
+1. Wielopoziomowa obsługa użytkowników - system rozróżnia klientów i pracowników poprzez schemat dziedziczenia
+2. Pełna audytowalność - każda zmiana statusu zlecenia jest rejestrowana w tabeli historii (atrybuty zmienne w czasie)
+3. Integralność danych - rozbudowany system więzów CHECK, UNIQUE i kluczy obcych
+4. Automatyzacja - wyzwalacze automatyzują rutynowe operacje (generowanie numerów, aktualizacja stanów)
+5. Skalowalność - indeksy na kluczach obcych i kolumnach wyszukiwania zapewniają wydajność
 
 ### 1.3 Możliwości systemu
 
@@ -47,8 +47,8 @@ Celem projektu jest stworzenie kompleksowej bazy danych dla warsztatu samochodow
 ---
 
 ## 2. Diagram ER i Diagram Relacji
-![alt text](image-1.png)
-![alt text](image.png)
+![alt text](DiagramER.png)
+![alt text](DiagramRelacji.png)
 ### 2.1 Lista tabel (17)
 
 | #   | Tabela                 | Opis                                       | Klucz główny     |
@@ -750,9 +750,7 @@ sqlplus uzytkownik/haslo@baza
 
 ---
 
-## 14. Autorzy
-
-**Projekt wykonany w ramach przedmiotu: Projektowanie i Wdrażanie Baz Danych**
+## 13. Autorzy
 
 - **Karol Dziekan**
 - **Krzysztof Cholewa**
