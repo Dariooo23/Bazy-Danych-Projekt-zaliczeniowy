@@ -10,9 +10,7 @@ SET NAMES utf8mb4;
 SET CHARACTER SET utf8mb4;
 SET sql_mode = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION';
 
-SELECT '========================================' AS '';
 SELECT 'INSTALACJA BAZY DANYCH WARSZTATU' AS '';
-SELECT '========================================' AS '';
 
 -- ============================================================================
 -- 1. TWORZENIE STRUKTURY BAZY DANYCH
@@ -48,14 +46,12 @@ SOURCE 05_TRIGGERS.sql;
 -- 6. LADOWANIE DANYCH TESTOWYCH
 -- ============================================================================
 SELECT '[6/6] Ladowanie danych testowych...' AS Status;
-SOURCE 07_TEST_DATA.sql;
+SOURCE 06_TEST_DATA.sql;
 
 -- ============================================================================
 -- PODSUMOWANIE INSTALACJI
 -- ============================================================================
-SELECT '========================================' AS '';
 SELECT 'INSTALACJA ZAKONCZONA POMYSLNIE!' AS '';
-SELECT '========================================' AS '';
 
 SELECT 'PODSUMOWANIE OBIEKTOW:' AS '';
 
@@ -79,5 +75,4 @@ SELECT 'Triggery:' AS Typ, COUNT(*) AS Ilosc
 FROM information_schema.triggers 
 WHERE trigger_schema = DATABASE();
 
-SELECT '========================================' AS '';
 SELECT 'Gotowe do uzycia!' AS '';

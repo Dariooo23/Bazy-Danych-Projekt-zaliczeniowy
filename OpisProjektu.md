@@ -721,45 +721,19 @@ Wszystkie skrypty znajdują się w katalogu `MySQL/`:
 
 ### Wymagania
 
-- **Docker Desktop** - [pobierz tutaj](https://www.docker.com/products/docker-desktop/)
-- **PowerShell** (Windows) lub Terminal (Linux/Mac)
+- **zainstaloawny MySQL Server** - [pobierz tutaj](https://dev.mysql.com/downloads/)
 
-### Krok 1: Uruchom kontener MySQL
-
-```powershell
-docker run -d --name mysql-warsztat -p 3306:3306 -e MYSQL_ROOT_PASSWORD=warsztat123 -e MYSQL_DATABASE=warsztat mysql:8.0
-```
+### Krok 1: Uruchom serwer MySQL
 
 ### Krok 2: Poczekaj na uruchomienie bazy (~30-60 sekund)
 
-```powershell
-# Windows PowerShell
-do { Start-Sleep 3; $r = docker logs mysql-warsztat 2>&1 | Select-String "ready for connections" } while (-not $r); "Baza gotowa!"
-```
-
-```bash
-# Linux/Mac
-while ! docker logs mysql-warsztat 2>&1 | grep -q "ready for connections"; do sleep 3; done; echo "Baza gotowa!"
-```
-
-### Krok 3: Skopiuj pliki SQL do kontenera
-
-```powershell
-docker cp MySQL mysql-warsztat:/tmp/
-```
+### Krok 3: Zaloguj się do bazy
 
 ### Krok 4: Uruchom instalację
+Należy zalogować się do serwera z katalogu zawierającego plik 00_INSTALL_ALL.sql i wykonać komendę:
+SOURCE 00_INSTALL_ALL.sql;
 
-```powershell
-docker exec -i mysql-warsztat mysql -uroot -pwarsztat123 warsztat < MySQL/01_CREATE_DATABASE.sql
-docker exec -i mysql-warsztat mysql -uroot -pwarsztat123 warsztat < MySQL/02_INDEXES.sql
-docker exec -i mysql-warsztat mysql -uroot -pwarsztat123 warsztat < MySQL/03_VIEWS_FUNCTIONS.sql
-docker exec -i mysql-warsztat mysql -uroot -pwarsztat123 warsztat < MySQL/04_PROCEDURES.sql
-docker exec -i mysql-warsztat mysql -uroot -pwarsztat123 warsztat < MySQL/05_TRIGGERS.sql
-docker exec -i mysql-warsztat mysql -uroot -pwarsztat123 warsztat < MySQL/06_TEST_DATA.sql
-```
-
-### Dane połączenia
+### Przykładowe dane połączenia
 
 | Parametr          | Wartość                                                     |
 | ----------------- | ----------------------------------------------------------- |
@@ -767,30 +741,8 @@ docker exec -i mysql-warsztat mysql -uroot -pwarsztat123 warsztat < MySQL/06_TES
 | Port              | `3306`                                                      |
 | Baza danych       | `warsztat`                                                  |
 | Użytkownik        | `root`                                                      |
-| Hasło             | `warsztat123`                                               |
-| Connection String | `mysql -h localhost -P 3306 -u root -pwarsztat123 warsztat` |
-
-### Połączenie z bazą przez mysql CLI
-
-```powershell
-docker exec -it mysql-warsztat mysql -uroot -pwarsztat123 warsztat
-```
-
-### Przydatne komendy Docker
-
-```powershell
-# Zatrzymaj kontener
-docker stop mysql-warsztat
-
-# Uruchom ponownie
-docker start mysql-warsztat
-
-# Usuń kontener (reset bazy)
-docker rm -f mysql-warsztat
-
-# Zobacz logi
-docker logs mysql-warsztat
-```
+| Hasło             | `123`                                                       |
+| Komenda łącząca   | `mysql -h localhost -P 3306 -u root -p123 warsztat`         |
 
 ### Weryfikacja instalacji
 
@@ -820,7 +772,7 @@ Oczekiwany wynik:
 - Widoki: 7
 - Procedury: 6
 - Funkcje: 4
-- Triggery: 8
+- Triggery: 9
 
 ---
 
@@ -840,7 +792,7 @@ Oczekiwany wynik:
 | Schemat relacji           | Tak            | Tak                     |
 | Więzy integralności       | Tak            | ~45 CHECK + UNIQUE      |
 | Typowe zapytania          | Tak            | 8 przykładów            |
-
+| (Opcjonalnie) GUI         | Tak            | Skrypt w Pythonie       |
 ---
 
 ## 14. Autorzy
