@@ -1,0 +1,13 @@
+### 10.3 Raport przychodów miesięcznych
+
+```sql
+SELECT DATE_FORMAT(DataPrzyjecia, '%Y-%m') AS Miesiac,
+       COUNT(*) AS LiczbaZlecen,
+       SUM(KosztCalkowity) AS Przychod,
+       ROUND(AVG(KosztCalkowity), 2) AS SredniKoszt
+FROM Zlecenie z
+JOIN StatusyZlecen s ON z.ID_AktualnegoStatusu = s.ID_Statusu
+WHERE s.NazwaStatusu = 'Wydane'
+GROUP BY DATE_FORMAT(DataPrzyjecia, '%Y-%m')
+ORDER BY Miesiac DESC;
+```

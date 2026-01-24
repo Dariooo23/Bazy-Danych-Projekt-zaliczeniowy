@@ -53,7 +53,6 @@ class MySQLGui:
         self.cursor.execute("SHOW TABLES")
         tables = [t[0] for t in self.cursor.fetchall()]
         self.table_combo["values"] = tables
-        print(tables)
 
     def load_data(self):
         table = self.table_name.get()
@@ -111,7 +110,6 @@ class MySQLGui:
 
         where_clause = ' AND '.join(f"`{c}` <=> %s" for c in where_cols)
         query = f"DELETE FROM `{table}` WHERE {where_clause} LIMIT 1"
-        print(query, where_vals)
         try:
             self.cursor.execute(query, where_vals)
             self.conn.commit()
@@ -180,7 +178,6 @@ class MySQLGui:
                             return
                         query = f"UPDATE `{table}` SET " + ', '.join(f"`{c}`=%s" for c in set_cols) + f" WHERE `{pk}`=%s"
                         params = [_to_param(c, entries[c].get()) for c in set_cols] + [_to_param(pk, entries[pk].get())]
-                        print(query, params)
                         self.cursor.execute(query, params)
                     else:
                         set_cols = columns[:]
@@ -190,7 +187,6 @@ class MySQLGui:
                         where_clause = ' AND '.join(f"`{c}` <=> %s" for c in columns)
                         query = f"UPDATE `{table}` SET " + ', '.join(f"`{c}`=%s" for c in set_cols) + f" WHERE {where_clause}"
                         params = [_to_param(c, entries[c].get()) for c in set_cols] + list(values)
-                        print(query, params)
                         self.cursor.execute(query, params)
                 else:
                     insert_cols = columns[:]
@@ -200,7 +196,6 @@ class MySQLGui:
                     placeholders = ','.join(['%s'] * len(insert_cols))
                     params = [_to_param(c, entries[c].get()) for c in insert_cols]
                     query = f"INSERT INTO `{table}` ({cols_sql}) VALUES ({placeholders})"
-                    print(query, params)
                     self.cursor.execute(query, params)
 
                 self.conn.commit()

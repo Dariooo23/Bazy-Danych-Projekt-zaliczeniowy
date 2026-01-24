@@ -608,21 +608,7 @@ WHERE p.ID_Klienta = ?
 ORDER BY z.DataPrzyjecia DESC;
 ```
 
-### 10.3 Raport przychodów miesięcznych
-
-```sql
-SELECT DATE_FORMAT(DataPrzyjecia, '%Y-%m') AS Miesiac,
-       COUNT(*) AS LiczbaZlecen,
-       SUM(KosztCalkowity) AS Przychod,
-       ROUND(AVG(KosztCalkowity), 2) AS SredniKoszt
-FROM Zlecenie z
-JOIN StatusyZlecen s ON z.ID_AktualnegoStatusu = s.ID_Statusu
-WHERE s.NazwaStatusu = 'Wydane'
-GROUP BY DATE_FORMAT(DataPrzyjecia, '%Y-%m')
-ORDER BY Miesiac DESC;
-```
-
-### 10.4 Części do zamówienia (niski stan)
+### 10.3 Części do zamówienia (niski stan)
 
 ```sql
 SELECT mc.NazwaCzesci, mc.KodProducenta,
@@ -635,7 +621,7 @@ WHERE mc.IloscDostepna < mc.MinStanAlarmowy
 ORDER BY DoZamowienia DESC;
 ```
 
-### 10.5 Historia zlecenia
+### 10.4 Historia zlecenia
 
 ```sql
 SELECT hz.DataZmiany,
@@ -653,7 +639,7 @@ WHERE z.NumerZlecenia = ?
 ORDER BY hz.DataZmiany;
 ```
 
-### 10.6 Statystyki pracownika
+### 10.5 Statystyki pracownika
 
 ```sql
 SELECT CONCAT(o.Imie, ' ', o.Nazwisko) AS Pracownik,
@@ -671,7 +657,7 @@ GROUP BY o.Imie, o.Nazwisko, st.NazwaStanowiska
 ORDER BY WartoscUslug DESC;
 ```
 
-### 10.7 Najpopularniejsze usługi
+### 10.6 Najpopularniejsze usługi
 
 ```sql
 SELECT ku.NazwaUslugi, ku.CenaBazowa,
@@ -684,7 +670,7 @@ ORDER BY LiczbaWykonan DESC
 LIMIT 10;
 ```
 
-### 10.8 Wyszukiwanie klienta po nazwisku
+### 10.7 Wyszukiwanie klienta po nazwisku
 
 ```sql
 SELECT o.ID_Osoby, o.Imie, o.Nazwisko, o.Telefon, o.Email,
@@ -787,13 +773,13 @@ Oczekiwany wynik:
 | Atrybuty zmienne w czasie | Tak            | Tabela HistoriaZmian    |
 | Widoki/funkcje            | 10             | 11 (7+4)                |
 | Procedury składowane      | 5              | 6                       |
-| Wyzwalacze                | 5              | 8                       |
+| Wyzwalacze                | 5              | 9                       |
 | Strategia backupu         | Tak            | mysqldump + binary logs |
 | Indeksy                   | -              | 28                      |
 | Diagram ER                | Tak            | Tak                     |
 | Schemat relacji           | Tak            | Tak                     |
 | Więzy integralności       | Tak            | ~45 CHECK + UNIQUE      |
-| Typowe zapytania          | Tak            | 8 przykładów            |
+| Typowe zapytania          | Tak            | 7 przykładów            |
 | (Opcjonalnie) GUI         | Tak            | Skrypt w Pythonie       |
 ---
 
