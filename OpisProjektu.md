@@ -750,7 +750,93 @@ sqlplus uzytkownik/haslo@baza
 
 ---
 
-## 13. Autorzy
+## 13. Urchomienie bazy danych
+
+## Szybki start - Uruchomienie bazy danych
+
+### Wymagania
+- **Docker Desktop** - [pobierz tutaj](https://www.docker.com/products/docker-desktop/)
+- **PowerShell** (Windows) lub Terminal (Linux/Mac)
+
+### Krok 1: Uruchom kontener Oracle
+
+```powershell
+docker run -d --name oracle-xe -p 1521:1521 -e ORACLE_PASSWORD=warsztat123 gvenzl/oracle-xe:21-slim
+```
+
+### Krok 2: Poczekaj na uruchomienie bazy (~60-90 sekund)
+
+```powershell
+# Windows PowerShell
+do { Start-Sleep 3; $r = docker logs oracle-xe 2>&1 | Select-String "DATABASE IS READY" } while (-not $r); "Baza gotowa!"
+```
+
+```bash
+# Linux/Mac
+while ! docker logs oracle-xe 2>&1 | grep -q "DATABASE IS READY"; do sleep 3; done; echo "Baza gotowa!"
+```
+
+### Krok 3: Skopiuj pliki SQL do kontenera
+
+```powershell
+docker cp SQL oracle-xe:/home/oracle/
+```
+
+### Krok 4: Uruchom instalację
+
+```powershell
+docker exec oracle-xe bash -c "cd /home/oracle && echo -e 'SET SQLBLANKLINES ON\n@00_INSTALL_ALL.sql' | sqlplus -S system/warsztat123@XEPDB1"
+```
+
+### Dane połączenia
+
+| Parametr | Wartość |
+|----------|---------|
+| Host | `localhost` |
+| Port | `1521`|
+| Service Name | `XEPDB1` |
+| Użytkownik | `system` |
+| Hasło | `warsztat123` |
+| Connection String | `system/warsztat123@localhost:1521/XEPDB1` |
+
+### Połączenie z bazą przez SQLPlus
+
+```powershell
+docker exec -it oracle-xe sqlplus system/warsztat123@XEPDB1
+```
+
+### Przydatne komendy Docker
+
+```powershell
+# Zatrzymaj kontener
+docker stop oracle-xe
+
+# Uruchom ponownie
+docker start oracle-xe
+
+# Usuń kontener (reset bazy)
+docker rm -f oracle-xe
+
+# Zobacz logi
+docker logs oracle-xe
+```
+
+### Weryfikacja instalacji
+
+Po uruchomieniu instalacji powinieneś zobaczyć podsumowanie:
+```
+OBIEKT         LICZBA
+---------- ----------
+TABELE             17
+SEKWENCJE          16
+WIDOKI              7
+FUNKCJE             4
+PROCEDURY           6
+WYZWALACZE          7
+INDEKSY            29
+```
+
+## 14. Autorzy
 
 - **Karol Dziekan**
 - **Krzysztof Cholewa**
