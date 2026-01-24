@@ -46,101 +46,23 @@ Celem projektu jest stworzenie kompleksowej bazy danych dla warsztatu samochodow
 
 ---
 
-## 2. Diagram ER (Entity-Relationship)
-
-### 2.1 Diagram główny
-
-```
-┌─────────────┐       ┌─────────────┐       ┌─────────────┐
-│    MARKA    │──────<│    MODEL    │       │ STANOWISKO  │
-└─────────────┘  1:N  └──────┬──────┘       └──────┬──────┘
-                             │ 1:N                 │ 1:N
-                             ▼                     ▼
-┌─────────────┐       ┌─────────────┐       ┌─────────────┐
-│   KLIENT    │──────<│   POJAZD    │       │ PRACOWNIK   │
-└──────┬──────┘  1:N  └──────┬──────┘       └──────┬──────┘
-       │                     │ 1:N                 │
-       │     ┌───────────────┘                     │
-       │     │         ┌───────────────────────────┘
-       │     ▼         ▼ N:1
-       │  ┌─────────────────┐       ┌─────────────────┐
-       │  │    ZLECENIE     │──────<│ HISTORIA_ZMIAN  │
-       │  └────────┬────────┘  1:N  └─────────────────┘
-       │           │ 1:N                    │
-       │     ┌─────┴─────┐                  │
-       │     ▼           ▼                  ▼
-┌──────┴─────────┐ ┌─────────────────┐ ┌─────────────────┐
-│POZ_ZLEC_USLUGI │ │ POZ_ZLEC_CZESCI │ │ STATUSY_ZLECEN  │
-└───────┬────────┘ └────────┬────────┘ └─────────────────┘
-        │ N:1               │ N:1
-        ▼                   ▼
-┌─────────────────┐ ┌─────────────────┐
-│  KATALOG_USLUG  │ │  MAGAZYN_CZESC  │──────< DOSTAWY
-└─────────────────┘ └────────┬────────┘   1:N
-                             │ N:1
-                    ┌────────┴────────┐
-                    ▼                 ▼
-            ┌──────────────┐   ┌──────────────┐
-            │KATEGORIA_CZ. │   │   DOSTAWCA   │
-            └──────────────┘   └──────────────┘
-```
-
-<div style="page-break-before: always;"></div>
-
-### 2.2 Dziedziczenie (Class Table Inheritance)
-
-```
-                    ┌─────────────────────────┐
-                    │         OSOBA           │
-                    │─────────────────────────│
-                    │ ID_Osoby (PK)           │
-                    │ Imie                    │
-                    │ Nazwisko                │
-                    │ Telefon                 │
-                    │ Email                   │
-                    │ Ulica, Miasto, Kod      │
-                    └───────────┬─────────────┘
-                                │
-                ┌───────────────┴───────────────┐
-                │ 1:1                       1:1 │
-                ▼                               ▼
-┌───────────────────────┐       ┌───────────────────────┐
-│        KLIENT         │       │      PRACOWNIK        │
-│───────────────────────│       │───────────────────────│
-│ ID_Osoby (PK, FK)     │       │ ID_Osoby (PK, FK)     │
-│ NIP                   │       │ DataZatrudnienia      │
-│ RabatStaly            │       │ DataZwolnienia        │
-│ DataRejestracji       │       │ PensjaPodstawowa      │
-│ Uwagi                 │       │ NrKontaBankowego      │
-│                       │       │ ID_Stanowiska (FK)    │
-└───────────────────────┘       └───────────────────────┘
-```
-
-**Uzasadnienie wyboru Class Table Inheritance:**
-
-- Każdy podtyp ma własne specyficzne atrybuty
-- Osoba może być tylko klientem LUB pracownikiem (rozłączność)
-- Łatwe rozszerzanie o nowe podtypy (np. Dostawca jako osoba)
-- Brak pustych kolumn (w przeciwieństwie do Single Table)
-
-<div style="page-break-before: always;"></div>
-
-## 3. Schemat bazy danych (diagram relacji)
-
-### 3.1 Lista tabel (17)
+## 2. Diagram ER i Diagram Relacji
+![alt text](image-1.png)
+![alt text](image.png)
+### 2.1 Lista tabel (17)
 
 | #   | Tabela                 | Opis                                       | Klucz główny     |
 | --- | ---------------------- | ------------------------------------------ | ---------------- |
 | 1   | Marka                  | Słownik marek pojazdów                     | ID_Marki         |
 | 2   | Model                  | Modele pojazdów powiązane z markami        | ID_Modelu        |
 | 3   | Stanowisko             | Słownik stanowisk pracowniczych            | ID_Stanowiska    |
-| 4   | **Osoba**              | NADTYP - wspólne dane osobowe              | ID_Osoby         |
-| 5   | **Klient**             | PODTYP - dane specyficzne klientów         | ID_Osoby (FK)    |
-| 6   | **Pracownik**          | PODTYP - dane specyficzne pracowników      | ID_Osoby (FK)    |
+| 4   | Osoba                  | NADTYP - wspólne dane osobowe              | ID_Osoby         |
+| 5   | Klient                 | PODTYP - dane specyficzne klientów         | ID_Osoby (FK)    |
+| 6   | Pracownik              | PODTYP - dane specyficzne pracowników      | ID_Osoby (FK)    |
 | 7   | Pojazd                 | Pojazdy klientów                           | ID_Pojazdu       |
 | 8   | StatusyZlecen          | Słownik statusów zleceń                    | ID_Statusu       |
 | 9   | Zlecenie               | Zlecenia serwisowe                         | ID_Zlecenia      |
-| 10  | **HistoriaZmian**      | Historia zmian statusów (atrybuty czasowe) | ID_Historii      |
+| 10  | HistoriaZmian          | Historia zmian statusów (atrybuty czasowe) | ID_Historii      |
 | 11  | KatalogUslug           | Katalog dostępnych usług                   | ID_Uslugi        |
 | 12  | PozycjeZlecenia_Uslugi | Pozycje zleceń - usługi                    | ID_PozycjiUslugi |
 | 13  | KategoriaCzesci        | Słownik kategorii części                   | ID_Kategorii     |
@@ -149,7 +71,7 @@ Celem projektu jest stworzenie kompleksowej bazy danych dla warsztatu samochodow
 | 16  | PozycjeZlecenia_Czesci | Pozycje zleceń - części                    | ID_PozycjiCzesci |
 | 17  | Dostawy                | Rejestr dostaw od dostawców                | ID_Dostawy       |
 
-### 3.2 Klucze obce (relacje)
+### 2.2 Klucze obce (relacje)
 
 | Tabela źródłowa        | Kolumna FK           | Tabela docelowa | Typ relacji |
 | ---------------------- | -------------------- | --------------- | ----------- |
@@ -178,9 +100,9 @@ Celem projektu jest stworzenie kompleksowej bazy danych dla warsztatu samochodow
 
 ---
 
-## 4. Dodatkowe więzy integralności danych
+## 3. Dodatkowe więzy integralności danych
 
-### 4.1 Ograniczenia CHECK
+### 3.1 Ograniczenia CHECK
 
 | Tabela                 | Ograniczenie             | Opis                         |
 | ---------------------- | ------------------------ | ---------------------------- |
@@ -213,7 +135,7 @@ Celem projektu jest stworzenie kompleksowej bazy danych dla warsztatu samochodow
 | PozycjeZlecenia_Czesci | `CHK_PozCzesci_Rabat`    | Rabat 0-100%                 |
 | Dostawy                | `CHK_Dostawy_Ilosc`      | Ilość ≥ 1                    |
 
-### 4.2 Ograniczenia UNIQUE
+### 3.2 Ograniczenia UNIQUE
 
 | Tabela          | Ograniczenie            | Kolumny               |
 | --------------- | ----------------------- | --------------------- |
@@ -227,7 +149,7 @@ Celem projektu jest stworzenie kompleksowej bazy danych dla warsztatu samochodow
 | KategoriaCzesci | `UQ_Kategoria_Nazwa`    | NazwaKategorii        |
 | MagazynCzesc    | `UQ_Magazyn_Kod`        | KodProducenta         |
 
-### 4.3 Więzy dziedziczenia
+### 3.3 Więzy dziedziczenia
 
 Tabele `Klient` i `Pracownik` mają klucz obcy do `Osoba` z opcją `ON DELETE CASCADE`, co zapewnia:
 
@@ -236,9 +158,9 @@ Tabele `Klient` i `Pracownik` mają klucz obcy do `Osoba` z opcją `ON DELETE CA
 
 ---
 
-## 5. Indeksy
+## 4. Indeksy
 
-### 5.1 Indeksy na kluczach obcych (18)
+### 4.1 Indeksy na kluczach obcych (18)
 
 Indeksy przyspieszają operacje JOIN oraz kaskadowe usuwanie:
 
@@ -264,7 +186,7 @@ Indeksy przyspieszają operacje JOIN oraz kaskadowe usuwanie:
 | IDX_Dostawy_Czesc        | Dostawy                | ID_Czesci            |
 | IDX_Dostawy_Dostawca     | Dostawy                | ID_Dostawcy          |
 
-### 5.2 Indeksy na kolumnach wyszukiwania (5)
+### 4.2 Indeksy na kolumnach wyszukiwania (5)
 
 | Indeks                       | Tabela        | Kolumna                        | Zastosowanie             |
 | ---------------------------- | ------------- | ------------------------------ | ------------------------ |
@@ -278,7 +200,7 @@ Indeksy przyspieszają operacje JOIN oraz kaskadowe usuwanie:
 | IDX_Klient_DataRejestracji   | Klient        | DataRejestracji                | Raporty                  |
 | IDX_Pracownik_DataZwolnienia | Pracownik     | DataZwolnienia                 | Filtrowanie aktywnych    |
 
-### 5.3 Indeks funkcyjny (1)
+### 4.3 Indeks funkcyjny (1)
 
 | Indeks           | Tabela   | Wyrażenie                        | Zastosowanie   |
 | ---------------- | -------- | -------------------------------- | -------------- |
@@ -288,9 +210,9 @@ Indeksy przyspieszają operacje JOIN oraz kaskadowe usuwanie:
 
 ---
 
-## 6. Opis widoków
+## 5. Opis widoków
 
-### 6.1 v_ZleceniaAktywne
+### 5.1 v_ZleceniaAktywne
 
 **Cel:** Wyświetlenie wszystkich aktywnych zleceń (nie wydanych klientowi)
 
@@ -308,7 +230,7 @@ Indeksy przyspieszają operacje JOIN oraz kaskadowe usuwanie:
 
 **Filtr:** Status NOT IN ('Wydane', 'Anulowane')
 
-### 6.2 v_PojazdyKlientow
+### 5.2 v_PojazdyKlientow
 
 **Cel:** Wyświetlenie pojazdów z danymi właścicieli
 
@@ -316,7 +238,7 @@ Indeksy przyspieszają operacje JOIN oraz kaskadowe usuwanie:
 
 **Zastosowanie:** Wyszukiwanie pojazdów, identyfikacja klienta
 
-### 6.3 v_MagazynNiskiStan
+### 5.3 v_MagazynNiskiStan
 
 **Cel:** Lista części z ilością poniżej minimalnego stanu alarmowego
 
@@ -324,7 +246,7 @@ Indeksy przyspieszają operacje JOIN oraz kaskadowe usuwanie:
 
 **Zastosowanie:** Zamówienia uzupełniające
 
-### 6.4 v_PracownicyAktywni
+### 5.4 v_PracownicyAktywni
 
 **Cel:** Lista aktywnych pracowników ze statystykami
 
@@ -332,7 +254,7 @@ Indeksy przyspieszają operacje JOIN oraz kaskadowe usuwanie:
 
 **Filtr:** DataZwolnienia IS NULL
 
-### 6.5 v_HistoriaZlecenia
+### 5.5 v_HistoriaZlecenia
 
 **Cel:** Pełna historia zmian statusów zlecenia
 
@@ -340,7 +262,7 @@ Indeksy przyspieszają operacje JOIN oraz kaskadowe usuwanie:
 
 **Zastosowanie:** Audyt, śledzenie przepływu zlecenia
 
-### 6.6 v_SzczegolyZlecenia
+### 5.6 v_SzczegolyZlecenia
 
 **Cel:** Szczegółowy widok zlecenia z podsumowaniem kosztów
 
@@ -348,7 +270,7 @@ Indeksy przyspieszają operacje JOIN oraz kaskadowe usuwanie:
 
 **Zastosowanie:** Wydruk zlecenia, fakturowanie
 
-### 6.7 v_RaportMiesieczny
+### 5.7 v_RaportMiesieczny
 
 **Cel:** Raport miesięczny - podsumowanie zleceń
 
@@ -358,9 +280,9 @@ Indeksy przyspieszają operacje JOIN oraz kaskadowe usuwanie:
 
 ---
 
-## 7. Opis funkcji
+## 6. Opis funkcji
 
-### 7.1 fn_GenerujNumerZlecenia
+### 6.1 fn_GenerujNumerZlecenia
 
 **Sygnatura:** `fn_GenerujNumerZlecenia RETURN VARCHAR2`
 
@@ -372,7 +294,7 @@ Indeksy przyspieszają operacje JOIN oraz kaskadowe usuwanie:
 2. Pobiera kolejny numer z sekwencji SEQ_NUMER_ZLECENIA
 3. Zwraca sformatowany numer: 'ZLC/2026/00001'
 
-### 7.2 fn_ObliczWartoscZlecenia
+### 6.2 fn_ObliczWartoscZlecenia
 
 **Sygnatura:** `fn_ObliczWartoscZlecenia(p_id_zlecenia NUMBER) RETURN NUMBER`
 
@@ -384,7 +306,7 @@ Indeksy przyspieszają operacje JOIN oraz kaskadowe usuwanie:
 2. Sumuje CenaKoncowa z PozycjeZlecenia_Czesci
 3. Zwraca sumę usług + części
 
-### 7.3 fn_PobierzRabatKlienta
+### 6.3 fn_PobierzRabatKlienta
 
 **Sygnatura:** `fn_PobierzRabatKlienta(p_id_pojazdu NUMBER) RETURN NUMBER`
 
@@ -396,7 +318,7 @@ Indeksy przyspieszają operacje JOIN oraz kaskadowe usuwanie:
 2. Pobiera RabatStaly z tabeli Klient
 3. Zwraca rabat (0 jeśli brak)
 
-### 7.4 fn_SprawdzDostepnoscCzesci
+### 6.4 fn_SprawdzDostepnoscCzesci
 
 **Sygnatura:** `fn_SprawdzDostepnoscCzesci(p_id_czesci NUMBER, p_wymagana_ilosc NUMBER) RETURN VARCHAR2`
 
@@ -406,9 +328,9 @@ Indeksy przyspieszają operacje JOIN oraz kaskadowe usuwanie:
 
 ---
 
-## 8. Opis procedur składowanych
+## 7. Opis procedur składowanych
 
-### 8.1 sp_NoweZlecenie
+### 7.1 sp_NoweZlecenie
 
 **Sygnatura:**
 
@@ -433,7 +355,7 @@ sp_NoweZlecenie(
 3. Dodaje pierwszy wpis do HistoriaZmian
 4. Zwraca ID i numer zlecenia
 
-### 8.2 sp_ZmienStatusZlecenia
+### 7.2 sp_ZmienStatusZlecenia
 
 **Sygnatura:**
 
@@ -455,7 +377,7 @@ sp_ZmienStatusZlecenia(
 3. Jeśli status = 'Wydane', ustawia DataRzeczywistegOdbioru
 4. Dodaje wpis do HistoriaZmian
 
-### 8.3 sp_DodajUslugeDoZlecenia
+### 7.3 sp_DodajUslugeDoZlecenia
 
 **Sygnatura:**
 
@@ -479,7 +401,7 @@ sp_DodajUslugeDoZlecenia(
 4. Tworzy pozycję zlecenia
 5. Aktualizuje KosztCalkowity zlecenia
 
-### 8.4 sp_DodajCzescDoZlecenia
+### 7.4 sp_DodajCzescDoZlecenia
 
 **Sygnatura:**
 
@@ -503,7 +425,7 @@ sp_DodajCzescDoZlecenia(
 5. Zmniejsza stan magazynowy
 6. Aktualizuje KosztCalkowity zlecenia
 
-### 8.5 sp_RejestrujDostawe
+### 7.5 sp_RejestrujDostawe
 
 **Sygnatura:**
 
@@ -525,7 +447,7 @@ sp_RejestrujDostawe(
 2. Zwiększa IloscDostepna w MagazynCzesc (przez trigger)
 3. Opcjonalnie aktualizuje Cena_Zakupu
 
-### 8.6 sp_ZamknijZlecenie
+### 7.6 sp_ZamknijZlecenie
 
 **Sygnatura:**
 
@@ -546,9 +468,9 @@ sp_ZamknijZlecenie(
 
 ---
 
-## 9. Opis wyzwalaczy
+## 8. Opis wyzwalaczy
 
-### 9.1 trg_Zlecenie_AutoNumer
+### 8.1 trg_Zlecenie_AutoNumer
 
 **Typ:** BEFORE INSERT na Zlecenie
 
@@ -559,7 +481,7 @@ sp_ZamknijZlecenie(
 - Jeśli ID_Zlecenia jest NULL → pobiera z sekwencji
 - Jeśli NumerZlecenia jest NULL → generuje format ZLC/RRRR/NNNNN
 
-### 9.2 trg_Historia_AutoInsert
+### 8.2 trg_Historia_AutoInsert
 
 **Typ:** AFTER UPDATE OF ID_AktualnegoStatusu na Zlecenie
 
@@ -569,7 +491,7 @@ sp_ZamknijZlecenie(
 
 **Warunek:** OLD.ID_AktualnegoStatusu != NEW.ID_AktualnegoStatusu
 
-### 9.3 trg_Magazyn_AlertNiskiStan
+### 8.3 trg_Magazyn_AlertNiskiStan
 
 **Typ:** AFTER UPDATE OF IloscDostepna na MagazynCzesc
 
@@ -579,7 +501,7 @@ sp_ZamknijZlecenie(
 
 **Warunek:** NEW.IloscDostepna < NEW.MinStanAlarmowy AND OLD.IloscDostepna >= OLD.MinStanAlarmowy
 
-### 9.4 trg_PozUslugi_ObliczCene
+### 8.4 trg_PozUslugi_ObliczCene
 
 **Typ:** BEFORE INSERT OR UPDATE na PozycjeZlecenia_Uslugi
 
@@ -587,7 +509,7 @@ sp_ZamknijZlecenie(
 
 **Formuła:** CenaKoncowa = CenaJednostkowa × Krotnosc × (1 - Rabat/100)
 
-### 9.5 trg_PozCzesci_ObliczCene
+### 8.5 trg_PozCzesci_ObliczCene
 
 **Typ:** BEFORE INSERT OR UPDATE na PozycjeZlecenia_Czesci
 
@@ -595,7 +517,7 @@ sp_ZamknijZlecenie(
 
 **Formuła:** CenaKoncowa = CenaWChwiliSprzedazy × Ilosc × (1 - Rabat/100)
 
-### 9.6 trg_Dostawy_AktualizujMagazyn
+### 8.6 trg_Dostawy_AktualizujMagazyn
 
 **Typ:** AFTER INSERT na Dostawy
 
@@ -603,7 +525,7 @@ sp_ZamknijZlecenie(
 
 **Działanie:** Zwiększa IloscDostepna o wartość IloscSztuk z dostawy
 
-### 9.7 trg_Pracownik_WalidacjaDat
+### 8.7 trg_Pracownik_WalidacjaDat
 
 **Typ:** BEFORE INSERT OR UPDATE na Pracownik
 
@@ -616,9 +538,9 @@ sp_ZamknijZlecenie(
 
 ---
 
-## 10. Strategia pielęgnacji bazy danych
+## 9. Strategia pielęgnacji bazy danych
 
-### 10.1 Rodzaje kopii zapasowych
+### 9.1 Rodzaje kopii zapasowych
 
 | Typ              | Częstotliwość    | Retencja | Metoda    |
 | ---------------- | ---------------- | -------- | --------- |
@@ -627,7 +549,7 @@ sp_ZamknijZlecenie(
 | Archive Log      | Ciągły           | 14 dni   | RMAN      |
 | Eksport logiczny | Tygodniowo       | 90 dni   | Data Pump |
 
-### 10.2 Skrypt RMAN - pełny backup
+### 9.2 Skrypt RMAN - pełny backup
 
 ```sql
 rman target /
@@ -645,7 +567,7 @@ RUN {
 }
 ```
 
-### 10.3 Procedury PL/SQL do backupu
+### 9.3 Procedury PL/SQL do backupu
 
 **sp_BackupTabelKrytycznych** - tworzy kopie tabel jako CTAS:
 
@@ -655,7 +577,7 @@ CREATE TABLE Zlecenie_BKP_20260118 AS SELECT * FROM Zlecenie;
 
 **sp_CzyscStareBackupy** - usuwa kopie starsze niż N dni
 
-### 10.4 Harmonogram
+### 9.4 Harmonogram
 
 ```
 0 2 * * *           - Pełny backup (codziennie 02:00)
@@ -665,9 +587,9 @@ CREATE TABLE Zlecenie_BKP_20260118 AS SELECT * FROM Zlecenie;
 
 ---
 
-## 11. Typowe zapytania
+## 10. Typowe zapytania
 
-### 11.1 Wyszukiwanie zlecenia po numerze rejestracyjnym
+### 10.1 Wyszukiwanie zlecenia po numerze rejestracyjnym
 
 ```sql
 SELECT z.NumerZlecenia, z.DataPrzyjecia, z.OpisUsterki, s.NazwaStatusu
@@ -677,7 +599,7 @@ JOIN StatusyZlecen s ON z.ID_AktualnegoStatusu = s.ID_Statusu
 WHERE p.NrRejestracyjny = 'KR12345';
 ```
 
-### 11.2 Lista zleceń klienta
+### 10.2 Lista zleceń klienta
 
 ```sql
 SELECT z.NumerZlecenia, z.DataPrzyjecia, p.NrRejestracyjny,
@@ -692,7 +614,7 @@ WHERE p.ID_Klienta = :id_klienta
 ORDER BY z.DataPrzyjecia DESC;
 ```
 
-### 11.3 Raport przychodów miesięcznych
+### 10.3 Raport przychodów miesięcznych
 
 ```sql
 SELECT TO_CHAR(DataPrzyjecia, 'YYYY-MM') AS Miesiac,
@@ -705,8 +627,8 @@ WHERE s.NazwaStatusu = 'Wydane'
 GROUP BY TO_CHAR(DataPrzyjecia, 'YYYY-MM')
 ORDER BY Miesiac DESC;
 ```
-
-### 11.4 Części do zamówienia (niski stan)
+ 
+### 10.4 Części do zamówienia (niski stan)
 
 ```sql
 SELECT mc.NazwaCzesci, mc.KodProducenta,
@@ -719,7 +641,7 @@ WHERE mc.IloscDostepna < mc.MinStanAlarmowy
 ORDER BY DoZamowienia DESC;
 ```
 
-### 11.5 Historia zlecenia
+### 10.5 Historia zlecenia
 
 ```sql
 SELECT hz.DataZmiany,
@@ -737,7 +659,7 @@ WHERE z.NumerZlecenia = :numer_zlecenia
 ORDER BY hz.DataZmiany;
 ```
 
-### 11.6 Statystyki pracownika
+### 10.6 Statystyki pracownika
 
 ```sql
 SELECT o.Imie || ' ' || o.Nazwisko AS Pracownik,
@@ -755,7 +677,7 @@ GROUP BY o.Imie, o.Nazwisko, st.NazwaStanowiska
 ORDER BY WartoscUslug DESC NULLS LAST;
 ```
 
-### 11.7 Najpopularniejsze usługi
+### 10.7 Najpopularniejsze usługi
 
 ```sql
 SELECT ku.NazwaUslugi, ku.CenaBazowa,
@@ -768,7 +690,7 @@ ORDER BY LiczbaWykonan DESC
 FETCH FIRST 10 ROWS ONLY;
 ```
 
-### 11.8 Wyszukiwanie klienta po nazwisku
+### 10.8 Wyszukiwanie klienta po nazwisku
 
 ```sql
 SELECT o.ID_Osoby, o.Imie, o.Nazwisko, o.Telefon, o.Email,
@@ -785,7 +707,7 @@ ORDER BY o.Nazwisko, o.Imie;
 
 ---
 
-## 12. Skrypty SQL
+## 11. Skrypty SQL
 
 Wszystkie skrypty znajdują się w katalogu `SQL/`:
 
@@ -809,22 +731,22 @@ sqlplus uzytkownik/haslo@baza
 
 ---
 
-## 13. Podsumowanie spełnionych wymagań
+## 12. Podsumowanie spełnionych wymagań
 
-| Wymaganie                 | Minimum        | Zrealizowano            | Status     |
-| ------------------------- | -------------- | ----------------------- | ---------- |
-| Tabele                    | 16 (8×2 osoby) | **17**                  | ✅         |
-| Schemat dziedziczenia     | Tak            | Class Table Inheritance | ✅         |
-| Atrybuty zmienne w czasie | Tak            | Tabela HistoriaZmian    | ✅         |
-| Widoki/funkcje            | 10             | **11** (7+4)            | ✅         |
-| Procedury składowane      | 5              | **6**                   | ✅         |
-| Wyzwalacze                | 5              | **7**                   | ✅         |
-| Strategia backupu         | Tak            | RMAN + Data Pump        | ✅         |
-| Indeksy                   | -              | **24**                  | ✅ (bonus) |
-| Diagram ER                | Tak            | Tak                     | ✅         |
-| Schemat relacji           | Tak            | Tak                     | ✅         |
-| Więzy integralności       | Tak            | ~45 CHECK + UNIQUE      | ✅         |
-| Typowe zapytania          | Tak            | 8 przykładów            | ✅         |
+| Wymaganie                 | Minimum        | Zrealizowano            | 
+| ------------------------- | -------------- | ----------------------- | 
+| Tabele                    | 16 (8×2 osoby) | **17**                  | 
+| Schemat dziedziczenia     | Tak            | Class Table Inheritance | 
+| Atrybuty zmienne w czasie | Tak            | Tabela HistoriaZmian    | 
+| Widoki/funkcje            | 10             | **11** (7+4)            | 
+| Procedury składowane      | 5              | **6**                   | 
+| Wyzwalacze                | 5              | **7**                   | 
+| Strategia backupu         | Tak            | RMAN + Data Pump        | 
+| Indeksy                   | -              | **24**                  | 
+| Diagram ER                | Tak            | Tak                     | 
+| Schemat relacji           | Tak            | Tak                     | 
+| Więzy integralności       | Tak            | ~45 CHECK + UNIQUE      | 
+| Typowe zapytania          | Tak            | 8 przykładów            | 
 
 ---
 
@@ -834,7 +756,3 @@ sqlplus uzytkownik/haslo@baza
 
 - **Karol Dziekan**
 - **Krzysztof Cholewa**
-
-_Uniwersytet Jagielloński, Styczeń 2026_
-
----
