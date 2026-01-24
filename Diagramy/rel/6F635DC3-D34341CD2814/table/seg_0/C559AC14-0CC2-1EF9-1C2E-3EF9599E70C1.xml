@@ -121,6 +121,21 @@
 <colAssociation fkAssociation="957B6932-ED72-91C0-5B77-2FE860414E65" referredColumn="4DB27BE6-3BAA-4B9B-8D58-C7DEC3456858"/>
 </associations>
 </Column>
+<Column name="Dostawy_ID_Dostawy" id="90626CE1-4572-9AD1-B53B-A535ECE84147">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-24 14:45:58 UTC</createdTime>
+<generatorID>01BBD381-7484-2245-2B61-755C379DBD84</generatorID>
+<ownerDesignName>Diagramy</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="196DE0FE-7D2A-1FA6-1D54-B7A367B0B1F1" referredColumn="A98ACF44-61D9-1590-E684-0C79B4DBD7D0"/>
+</associations>
+</Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
 <ind_PK_UK id="97776AC6-17D3-0565-B4DA-AE5A0274849C" name="MagazynCzesc_PK">
@@ -155,6 +170,17 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="B6EBFBE2-6F87-8261-BDAD-D085C467721E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5BCBD137-11D7-0627-E8D6-CCE2A52835E9" name="MagazynCzesc_Dostawy_FK">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-24 14:45:58 UTC</createdTime>
+<generatorID>7F309131-6445-93FD-AECB-187BAEB05824</generatorID>
+<ownerDesignName>Diagramy</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="90626CE1-4572-9AD1-B53B-A535ECE84147"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

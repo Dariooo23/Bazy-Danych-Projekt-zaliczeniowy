@@ -133,14 +133,29 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="ID_Dostawy" id="01BBD381-7484-2245-2B61-755C379DBD84">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-24 14:31:44 UTC</createdTime>
+<generatorID>7F309131-6445-93FD-AECB-187BAEB05824</generatorID>
+<ownerDesignName>Diagramy</ownerDesignName>
+<engineerTo>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+</engineerTo>
+<referedAttribute>CDC471E7-846F-19C4-A66C-8E71BDF237FA</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="0CB7D549-8BFB-DC64-B75F-3132AB0FCF9C" name="MagazynCzesci PK">
 <createdBy>karol</createdBy>
 <createdTime>2026-01-05 10:57:26 UTC</createdTime>
 <ownerDesignName>Diagramy</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="false"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>

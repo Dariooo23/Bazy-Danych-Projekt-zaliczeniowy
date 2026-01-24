@@ -1,0 +1,98 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="35F393BA-3EE0-2B47-8EE2-4283648518CA" name="Dostawy">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-24 14:45:58 UTC</createdTime>
+<generatorID>76C6332A-746D-66B9-DDB1-7353C32A4CC8</generatorID>
+<ownerDesignName>Diagramy</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_Dostawy" id="A98ACF44-61D9-1590-E684-0C79B4DBD7D0">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-24 14:45:58 UTC</createdTime>
+<generatorID>CDC471E7-846F-19C4-A66C-8E71BDF237FA</generatorID>
+<ownerDesignName>Diagramy</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DataDostawy" id="EDE11CA1-9DD3-E8DA-7D76-C6445CA9E7A6">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-24 14:45:58 UTC</createdTime>
+<generatorID>E5ED2FB6-F5BB-1AB8-F096-87F0EFD314B7</generatorID>
+<ownerDesignName>Diagramy</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NumerFaktury" id="508C1FA2-B89C-B302-D971-EF7630F69153">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-24 14:45:58 UTC</createdTime>
+<generatorID>1D5D3D30-187F-545C-83B9-20885CCD5E46</generatorID>
+<ownerDesignName>Diagramy</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IloscSztuk" id="2A9A4F84-9DD0-077A-E972-12488582CB76">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-24 14:45:58 UTC</createdTime>
+<generatorID>6E1107BC-4AEB-1CEF-0B18-464C4D5D47A5</generatorID>
+<ownerDesignName>Diagramy</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CenaJednostkowa" id="330B1098-32AF-DC1A-E81C-2A50C40243A8">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-24 14:45:58 UTC</createdTime>
+<generatorID>3BA0FF5C-AA0D-C894-979E-DE89178D6CA8</generatorID>
+<ownerDesignName>Diagramy</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT043</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<dataTypeScale>10</dataTypeScale>
+<ownDataTypeParameters>,2,10</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="WartoscCalkowita" id="B26AE3C8-7F28-8D8E-3859-BB53ED2C398D">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-24 14:45:58 UTC</createdTime>
+<generatorID>90678D70-30D2-A256-1230-528F9F4FFBFB</generatorID>
+<ownerDesignName>Diagramy</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT043</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<dataTypeScale>10</dataTypeScale>
+<ownDataTypeParameters>,2,10</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="4698A254-F01C-A7F7-31D5-CF394A24FD7F" name="Dostawy_PK">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-24 14:45:58 UTC</createdTime>
+<generatorID>47337151-F166-F675-727B-C02E06DE0860</generatorID>
+<ownerDesignName>Diagramy</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A98ACF44-61D9-1590-E684-0C79B4DBD7D0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

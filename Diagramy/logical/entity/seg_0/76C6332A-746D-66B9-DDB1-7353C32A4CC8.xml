@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="33161609-9DFE-A8CF-D6E9-60A4697F9FE8" name="HistoriaZmian">
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="76C6332A-746D-66B9-DDB1-7353C32A4CC8" name="Dostawy">
 <createdBy>karol</createdBy>
-<createdTime>2026-01-05 11:07:29 UTC</createdTime>
+<createdTime>2026-01-24 14:25:39 UTC</createdTime>
 <ownerDesignName>Diagramy</ownerDesignName>
 <engineerTo>
 <item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
@@ -15,9 +15,9 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="ID_Historii" id="B0C89A00-3D89-1EF6-091D-E65F3483EC6C">
+<Attribute name="ID_Dostawy" id="CDC471E7-846F-19C4-A66C-8E71BDF237FA">
 <createdBy>karol</createdBy>
-<createdTime>2026-01-05 11:09:52 UTC</createdTime>
+<createdTime>2026-01-24 14:26:01 UTC</createdTime>
 <ownerDesignName>Diagramy</ownerDesignName>
 <engineerTo>
 <item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
@@ -27,9 +27,9 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="DataZmiany" id="44386B0D-2E97-2231-6D5F-A539C1BA3B4C">
+<Attribute name="DataDostawy" id="E5ED2FB6-F5BB-1AB8-F096-87F0EFD314B7">
 <createdBy>karol</createdBy>
-<createdTime>2026-01-05 11:09:52 UTC</createdTime>
+<createdTime>2026-01-24 14:26:02 UTC</createdTime>
 <ownerDesignName>Diagramy</ownerDesignName>
 <engineerTo>
 <item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
@@ -39,75 +39,72 @@
 <logicalDatatype>LOGDT007</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="ID_Zlecenia" id="A6292758-C64D-B476-9D13-A31E1BF827B6">
+<Attribute name="NumerFaktury" id="1D5D3D30-187F-545C-83B9-20885CCD5E46">
 <createdBy>karol</createdBy>
-<createdTime>2026-01-05 11:27:53 UTC</createdTime>
-<generatorID>83817DBF-5DBC-ADCC-E7CD-BD286CDEFDCA</generatorID>
+<createdTime>2026-01-24 14:29:00 UTC</createdTime>
 <ownerDesignName>Diagramy</ownerDesignName>
 <engineerTo>
 <item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
 </engineerTo>
-<referedAttribute>697709E7-C87D-436D-91DB-1884E719820F</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="IloscSztuk" id="6E1107BC-4AEB-1CEF-0B18-464C4D5D47A5">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-24 14:29:00 UTC</createdTime>
+<ownerDesignName>Diagramy</ownerDesignName>
+<engineerTo>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+</engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="ID_Statusu" id="0DB97C25-F46A-68A6-4729-9183D9AD039F">
+<Attribute name="CenaJednostkowa" id="3BA0FF5C-AA0D-C894-979E-DE89178D6CA8">
 <createdBy>karol</createdBy>
-<createdTime>2026-01-05 11:28:09 UTC</createdTime>
-<generatorID>C672D33B-AA0F-E7AB-4343-A9FC61C88F72</generatorID>
+<createdTime>2026-01-24 14:29:00 UTC</createdTime>
 <ownerDesignName>Diagramy</ownerDesignName>
 <engineerTo>
 <item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
 </engineerTo>
-<referedAttribute>5114A83D-DEA7-B684-3E08-6210379F45C3</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT043</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<dataTypeScale>10</dataTypeScale>
+<ownDataTypeParameters>,2,10</ownDataTypeParameters>
 </Attribute>
-<Attribute name="ID_Statusu1" id="D68C0DD9-166E-3169-E5A9-1E679A01DF36">
+<Attribute name="WartoscCalkowita" id="90678D70-30D2-A256-1230-528F9F4FFBFB">
 <createdBy>karol</createdBy>
-<createdTime>2026-01-05 11:28:45 UTC</createdTime>
-<generatorID>1579FDEB-12D0-3D01-545E-99C292D72927</generatorID>
+<createdTime>2026-01-24 14:29:00 UTC</createdTime>
 <ownerDesignName>Diagramy</ownerDesignName>
 <engineerTo>
 <item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
 </engineerTo>
-<referedAttribute>5114A83D-DEA7-B684-3E08-6210379F45C3</referedAttribute>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="ID_Osoby" id="D75E0419-2E84-E84C-D9F0-1042E19CD013">
-<createdBy>karol</createdBy>
-<createdTime>2026-01-05 11:29:11 UTC</createdTime>
-<generatorID>59E5D34D-4D5F-24A1-0E2D-E8BD3D19E6F7</generatorID>
-<ownerDesignName>Diagramy</ownerDesignName>
-<engineerTo>
-<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
-</engineerTo>
-<referedAttribute>3CA74DA6-49E3-329B-5BD6-EB867EA4C23D</referedAttribute>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT043</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<dataTypeScale>10</dataTypeScale>
+<ownDataTypeParameters>,2,10</ownDataTypeParameters>
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
-<identifier id="EAABBEEF-283A-630C-A313-0AF445283009" name="HistoriaZmian PK">
+<identifier id="47337151-F166-F675-727B-C02E06DE0860" name="Dostawy PK">
 <createdBy>karol</createdBy>
-<createdTime>2026-01-05 11:09:58 UTC</createdTime>
+<createdTime>2026-01-24 14:29:23 UTC</createdTime>
 <ownerDesignName>Diagramy</ownerDesignName>
-<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="false"/>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>
-<attributeRef>B0C89A00-3D89-1EF6-091D-E65F3483EC6C</attributeRef>
+<attributeRef>CDC471E7-846F-19C4-A66C-8E71BDF237FA</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

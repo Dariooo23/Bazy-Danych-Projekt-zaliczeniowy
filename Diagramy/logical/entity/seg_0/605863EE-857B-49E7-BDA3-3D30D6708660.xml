@@ -93,14 +93,29 @@
 <dataTypeSize>15 CHAR</dataTypeSize>
 <ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="ID_Dostawy" id="BF32CC80-FB43-8AA1-C911-86609BB77004">
+<createdBy>karol</createdBy>
+<createdTime>2026-01-24 14:32:36 UTC</createdTime>
+<generatorID>A8D3D1D6-924F-E659-57C1-82B79BE25CC2</generatorID>
+<ownerDesignName>Diagramy</ownerDesignName>
+<engineerTo>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+</engineerTo>
+<referedAttribute>CDC471E7-846F-19C4-A66C-8E71BDF237FA</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="2526C9F2-F933-1383-2111-CAD9B9980352" name="Dostawcy PK">
 <createdBy>karol</createdBy>
 <createdTime>2026-01-05 10:45:31 UTC</createdTime>
 <ownerDesignName>Diagramy</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="false"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>

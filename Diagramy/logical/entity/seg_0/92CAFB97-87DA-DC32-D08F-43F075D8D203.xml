@@ -130,8 +130,9 @@
 <createdBy>karol</createdBy>
 <createdTime>2026-01-05 10:10:41 UTC</createdTime>
 <ownerDesignName>Diagramy</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="false"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>

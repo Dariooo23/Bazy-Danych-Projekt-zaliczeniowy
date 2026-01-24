@@ -113,8 +113,9 @@
 <createdBy>karol</createdBy>
 <createdTime>2026-01-05 10:38:44 UTC</createdTime>
 <ownerDesignName>Diagramy</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="false"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>
@@ -125,8 +126,9 @@
 <createdBy>karol</createdBy>
 <createdTime>2026-01-05 10:40:20 UTC</createdTime>
 <ownerDesignName>Diagramy</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="true"/>
+<item key="6F635DC3-D631-FF1C-A0E1-D34341CD2814" value="false"/>
 </engineerTo>
 <newElementsIDs>C9B2B3CE-9756-B537-A7C1-0F70EB3B93E3</newElementsIDs>
 <usedAttributes>

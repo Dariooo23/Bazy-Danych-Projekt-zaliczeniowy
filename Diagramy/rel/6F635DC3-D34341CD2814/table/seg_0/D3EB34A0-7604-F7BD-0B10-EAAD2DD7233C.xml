@@ -60,7 +60,7 @@
 <colAssociation fkAssociation="EB115417-4C60-987E-5B5C-7C15FD7BD218" referredColumn="7E86C5F9-2876-1FE9-321D-34E31F9F6212"/>
 </associations>
 </Column>
-<Column name="StatusyZlecen_ID_Statusu2" id="7C007607-FF6E-B936-2124-33365E4B47BC">
+<Column name="StatusyZlecen_ID_Statusu1" id="7C007607-FF6E-B936-2124-33365E4B47BC">
 <createdBy>karol</createdBy>
 <createdTime>2026-01-05 11:34:28 UTC</createdTime>
 <generatorID>D68C0DD9-166E-3169-E5A9-1E679A01DF36</generatorID>
@@ -126,7 +126,7 @@
 <colUsage columnID="564994E8-FEE6-6438-8C48-CC5076F73C1A"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="E0EB740E-F835-76FB-BFDF-DC744F6F0636" name="HistoriaZmian_StatusyZlecen_FKv2">
+<ind_PK_UK id="E0EB740E-F835-76FB-BFDF-DC744F6F0636" name="HistoriaZmian_StatusyZlecen_FKv1">
 <createdBy>karol</createdBy>
 <createdTime>2026-01-05 11:34:28 UTC</createdTime>
 <generatorID>1579FDEB-12D0-3D01-545E-99C292D72927</generatorID>
