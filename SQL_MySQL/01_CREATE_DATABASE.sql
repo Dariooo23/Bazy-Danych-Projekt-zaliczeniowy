@@ -10,8 +10,8 @@ SET NAMES utf8mb4;
 SET CHARACTER SET utf8mb4;
 
 -- Tworzymy baze danych (jesli uruchamiasz lokalnie)
--- CREATE DATABASE IF NOT EXISTS warsztat CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci;
--- USE warsztat;
+CREATE DATABASE IF NOT EXISTS warsztat CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci;
+USE warsztat;
 
 -- ============================================================================
 -- USUWANIE TABEL (jesli istnieja) - w odpowiedniej kolejnosci
