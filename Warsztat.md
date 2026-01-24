@@ -730,8 +730,10 @@ Wszystkie skrypty znajdują się w katalogu `MySQL/`:
 ### Krok 3: Zaloguj się do bazy
 
 ### Krok 4: Uruchom instalację
-Należy zalogować się do serwera z katalogu zawierającego plik 00_INSTALL_ALL.sql i wykonać komendę:
+Należy zalogować się do serwera z katalogu zawierającego plik 00_INSTALL_ALL.sql i pozostałe pliki instalacyjne i wykonać komendę:
+```
 SOURCE 00_INSTALL_ALL.sql;
+```
 
 ### Przykładowe dane połączenia
 
