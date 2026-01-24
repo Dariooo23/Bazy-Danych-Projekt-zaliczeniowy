@@ -192,6 +192,8 @@ ORDER BY Miesiac DESC;
 -- ============================================================================
 DELIMITER //
 
+DROP FUNCTION IF EXISTS fn_GenerujNumerZlecenia //
+
 CREATE FUNCTION fn_GenerujNumerZlecenia()
 RETURNS VARCHAR(20)
 DETERMINISTIC
@@ -222,6 +224,8 @@ DELIMITER ;
 -- ============================================================================
 DELIMITER //
 
+DROP FUNCTION IF EXISTS fn_ObliczWartoscZlecenia //
+
 CREATE FUNCTION fn_ObliczWartoscZlecenia(p_id_zlecenia INT)
 RETURNS DECIMAL(12,2)
 DETERMINISTIC
@@ -251,6 +255,8 @@ DELIMITER ;
 -- ============================================================================
 DELIMITER //
 
+DROP FUNCTION IF EXISTS fn_PobierzRabatKlienta //
+
 CREATE FUNCTION fn_PobierzRabatKlienta(p_id_pojazdu INT)
 RETURNS DECIMAL(5,2)
 DETERMINISTIC
@@ -274,6 +280,8 @@ DELIMITER ;
 -- Sprawdza czy czesc jest dostepna w wymaganej ilosci
 -- ============================================================================
 DELIMITER //
+
+DROP FUNCTION IF EXISTS fn_SprawdzDostepnoscCzesci //
 
 CREATE FUNCTION fn_SprawdzDostepnoscCzesci(
     p_id_czesci INT,

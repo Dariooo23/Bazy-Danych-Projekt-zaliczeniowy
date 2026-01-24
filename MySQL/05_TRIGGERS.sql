@@ -8,6 +8,8 @@ DELIMITER //
 -- TRIGGER 1: trg_Zlecenie_AutoNumer
 -- Automatycznie generuje numer zlecenia przy INSERT (jesli nie podano)
 -- ============================================================================
+DROP TRIGGER IF EXISTS trg_Zlecenie_AutoNumer //
+
 CREATE TRIGGER trg_Zlecenie_AutoNumer
 BEFORE INSERT ON Zlecenie
 FOR EACH ROW
@@ -46,6 +48,8 @@ CREATE TABLE IF NOT EXISTS LogAlertyMagazyn (
     DoZamowienia    INT
 ) ENGINE=InnoDB //
 
+DROP TRIGGER IF EXISTS trg_Magazyn_AlertNiskiStan //
+
 CREATE TRIGGER trg_Magazyn_AlertNiskiStan
 AFTER UPDATE ON MagazynCzesc
 FOR EACH ROW
@@ -67,6 +71,8 @@ END //
 -- TRIGGER 3: trg_PozUslugi_ObliczCene
 -- Automatycznie oblicza cene koncowa pozycji uslugi
 -- ============================================================================
+DROP TRIGGER IF EXISTS trg_PozUslugi_ObliczCene_Insert //
+
 CREATE TRIGGER trg_PozUslugi_ObliczCene_Insert
 BEFORE INSERT ON PozycjeZlecenia_Uslugi
 FOR EACH ROW
@@ -79,6 +85,8 @@ BEGIN
         SET NEW.CenaKoncowa = 0;
     END IF;
 END //
+
+DROP TRIGGER IF EXISTS trg_PozUslugi_ObliczCene_Update //
 
 CREATE TRIGGER trg_PozUslugi_ObliczCene_Update
 BEFORE UPDATE ON PozycjeZlecenia_Uslugi
@@ -97,6 +105,8 @@ END //
 -- TRIGGER 4: trg_PozCzesci_ObliczCene
 -- Automatycznie oblicza cene koncowa pozycji czesci
 -- ============================================================================
+DROP TRIGGER IF EXISTS trg_PozCzesci_ObliczCene_Insert //
+
 CREATE TRIGGER trg_PozCzesci_ObliczCene_Insert
 BEFORE INSERT ON PozycjeZlecenia_Czesci
 FOR EACH ROW
@@ -109,6 +119,8 @@ BEGIN
         SET NEW.CenaKoncowa = 0;
     END IF;
 END //
+
+DROP TRIGGER IF EXISTS trg_PozCzesci_ObliczCene_Update //
 
 CREATE TRIGGER trg_PozCzesci_ObliczCene_Update
 BEFORE UPDATE ON PozycjeZlecenia_Czesci
@@ -127,6 +139,8 @@ END //
 -- TRIGGER 5: trg_Dostawy_AktualizujMagazyn
 -- Automatycznie aktualizuje stan magazynowy po zarejestrowaniu dostawy
 -- ============================================================================
+DROP TRIGGER IF EXISTS trg_Dostawy_AktualizujMagazyn //
+
 CREATE TRIGGER trg_Dostawy_AktualizujMagazyn
 AFTER INSERT ON Dostawy
 FOR EACH ROW
@@ -140,6 +154,8 @@ END //
 -- TRIGGER 6: trg_Pracownik_WalidacjaDat
 -- Waliduje daty zatrudnienia/zwolnienia pracownika
 -- ============================================================================
+DROP TRIGGER IF EXISTS trg_Pracownik_WalidacjaDat_Insert //
+
 CREATE TRIGGER trg_Pracownik_WalidacjaDat_Insert
 BEFORE INSERT ON Pracownik
 FOR EACH ROW
@@ -156,6 +172,8 @@ BEGIN
         SET MESSAGE_TEXT = 'Data zwolnienia nie moze byc wczesniejsza niz data zatrudnienia';
     END IF;
 END //
+
+DROP TRIGGER IF EXISTS trg_Pracownik_WalidacjaDat_Update //
 
 CREATE TRIGGER trg_Pracownik_WalidacjaDat_Update
 BEFORE UPDATE ON Pracownik

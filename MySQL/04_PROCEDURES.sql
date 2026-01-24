@@ -8,6 +8,8 @@ DELIMITER //
 -- PROCEDURA 1: sp_NoweZlecenie
 -- Tworzy nowe zlecenie serwisowe z automatycznym numerowaniem
 -- ============================================================================
+DROP PROCEDURE IF EXISTS sp_NoweZlecenie //
+
 CREATE PROCEDURE sp_NoweZlecenie(
     IN p_id_pojazdu INT,
     IN p_id_pracownika INT,
@@ -66,6 +68,8 @@ END //
 -- PROCEDURA 2: sp_ZmienStatusZlecenia
 -- Zmienia status zlecenia i rejestruje zmiane w historii
 -- ============================================================================
+DROP PROCEDURE IF EXISTS sp_ZmienStatusZlecenia //
+
 CREATE PROCEDURE sp_ZmienStatusZlecenia(
     IN p_id_zlecenia INT,
     IN p_nowy_status VARCHAR(50),
@@ -136,6 +140,8 @@ END //
 -- PROCEDURA 3: sp_DodajUslugeDoZlecenia
 -- Dodaje usluge do zlecenia z uwzglednieniem rabatu klienta
 -- ============================================================================
+DROP PROCEDURE IF EXISTS sp_DodajUslugeDoZlecenia //
+
 CREATE PROCEDURE sp_DodajUslugeDoZlecenia(
     IN p_id_zlecenia INT,
     IN p_id_uslugi INT,
@@ -203,6 +209,8 @@ END //
 -- PROCEDURA 4: sp_DodajCzescDoZlecenia
 -- Dodaje czesc do zlecenia i zmniejsza stan magazynowy
 -- ============================================================================
+DROP PROCEDURE IF EXISTS sp_DodajCzescDoZlecenia //
+
 CREATE PROCEDURE sp_DodajCzescDoZlecenia(
     IN p_id_zlecenia INT,
     IN p_id_czesci INT,
@@ -277,6 +285,8 @@ END //
 -- PROCEDURA 5: sp_RejestrujDostawe
 -- Rejestruje dostawe czesci i aktualizuje stan magazynowy
 -- ============================================================================
+DROP PROCEDURE IF EXISTS sp_RejestrujDostawe //
+
 CREATE PROCEDURE sp_RejestrujDostawe(
     IN p_id_czesci INT,
     IN p_id_dostawcy INT,
@@ -324,6 +334,8 @@ END //
 -- PROCEDURA 6: sp_ZamknijZlecenie
 -- Zamyka zlecenie i przelicza koszty
 -- ============================================================================
+DROP PROCEDURE IF EXISTS sp_ZamknijZlecenie //
+
 CREATE PROCEDURE sp_ZamknijZlecenie(
     IN p_id_zlecenia INT,
     IN p_id_pracownika INT
