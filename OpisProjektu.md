@@ -1,6 +1,6 @@
 # System Zarządzania Warsztatem Samochodowym
 
-**Projekt bazy danych** | Oracle SQL | Styczeń 2026
+**Projekt bazy danych** | MySQL 8.0+ | Styczeń 2026
 
 ---
 
@@ -47,8 +47,10 @@ Celem projektu jest stworzenie kompleksowej bazy danych dla warsztatu samochodow
 ---
 
 ## 2. Diagram ER i Diagram Relacji
+
 ![alt text](DiagramER.png)
 ![alt text](DiagramRelacji.png)
+
 ### 2.1 Lista tabel (17)
 
 | #   | Tabela                 | Opis                                       | Klucz główny     |
@@ -186,7 +188,7 @@ Indeksy przyspieszają operacje JOIN oraz kaskadowe usuwanie:
 | IDX_Dostawy_Czesc        | Dostawy                | ID_Czesci            |
 | IDX_Dostawy_Dostawca     | Dostawy                | ID_Dostawcy          |
 
-### 4.2 Indeksy na kolumnach wyszukiwania (5)
+### 4.2 Indeksy na kolumnach wyszukiwania (9)
 
 | Indeks                       | Tabela        | Kolumna                        | Zastosowanie             |
 | ---------------------------- | ------------- | ------------------------------ | ------------------------ |
@@ -200,13 +202,13 @@ Indeksy przyspieszają operacje JOIN oraz kaskadowe usuwanie:
 | IDX_Klient_DataRejestracji   | Klient        | DataRejestracji                | Raporty                  |
 | IDX_Pracownik_DataZwolnienia | Pracownik     | DataZwolnienia                 | Filtrowanie aktywnych    |
 
-### 4.3 Indeks funkcyjny (1)
+### 4.3 Indeks na wyrażeniu (MySQL 8.0+)
 
-| Indeks           | Tabela   | Wyrażenie                        | Zastosowanie   |
-| ---------------- | -------- | -------------------------------- | -------------- |
-| IDX_Zlecenie_Rok | Zlecenie | EXTRACT(YEAR FROM DataPrzyjecia) | Raporty roczne |
+| Indeks           | Tabela   | Wyrażenie             | Zastosowanie   |
+| ---------------- | -------- | --------------------- | -------------- |
+| IDX_Zlecenie_Rok | Zlecenie | (YEAR(DataPrzyjecia)) | Raporty roczne |
 
-**Łącznie: 24 indeksy**
+**Łącznie: 28 indeksów**
 
 ---
 
@@ -276,7 +278,7 @@ Indeksy przyspieszają operacje JOIN oraz kaskadowe usuwanie:
 
 **Kolumny:** Miesiąc, liczba zleceń, zakończonych, w trakcie, przychody, średni koszt, największe zlecenie
 
-**Grupowanie:** TO_CHAR(DataPrzyjecia, 'YYYY-MM')
+**Grupowanie:** DATE_FORMAT(DataPrzyjecia, '%Y-%m')
 
 ---
 
@@ -284,19 +286,19 @@ Indeksy przyspieszają operacje JOIN oraz kaskadowe usuwanie:
 
 ### 6.1 fn_GenerujNumerZlecenia
 
-**Sygnatura:** `fn_GenerujNumerZlecenia RETURN VARCHAR2`
+**Sygnatura:** `fn_GenerujNumerZlecenia() RETURNS VARCHAR(20)`
 
 **Cel:** Generuje unikalny numer zlecenia w formacie ZLC/RRRR/NNNNN
 
 **Działanie:**
 
-1. Pobiera bieżący rok
-2. Pobiera kolejny numer z sekwencji SEQ_NUMER_ZLECENIA
+1. Pobiera bieżący rok z YEAR(CURRENT_DATE)
+2. Pobiera najwyższy numer z bieżącego roku + 1
 3. Zwraca sformatowany numer: 'ZLC/2026/00001'
 
 ### 6.2 fn_ObliczWartoscZlecenia
 
-**Sygnatura:** `fn_ObliczWartoscZlecenia(p_id_zlecenia NUMBER) RETURN NUMBER`
+**Sygnatura:** `fn_ObliczWartoscZlecenia(p_id_zlecenia INT) RETURNS DECIMAL(12,2)`
 
 **Cel:** Oblicza całkowitą wartość zlecenia
 
@@ -308,7 +310,7 @@ Indeksy przyspieszają operacje JOIN oraz kaskadowe usuwanie:
 
 ### 6.3 fn_PobierzRabatKlienta
 
-**Sygnatura:** `fn_PobierzRabatKlienta(p_id_pojazdu NUMBER) RETURN NUMBER`
+**Sygnatura:** `fn_PobierzRabatKlienta(p_id_pojazdu INT) RETURNS DECIMAL(5,2)`
 
 **Cel:** Pobiera rabat stały klienta na podstawie ID pojazdu
 
@@ -320,11 +322,11 @@ Indeksy przyspieszają operacje JOIN oraz kaskadowe usuwanie:
 
 ### 6.4 fn_SprawdzDostepnoscCzesci
 
-**Sygnatura:** `fn_SprawdzDostepnoscCzesci(p_id_czesci NUMBER, p_wymagana_ilosc NUMBER) RETURN VARCHAR2`
+**Sygnatura:** `fn_SprawdzDostepnoscCzesci(p_id_czesci INT, p_wymagana_ilosc INT) RETURNS VARCHAR(100)`
 
 **Cel:** Sprawdza czy część jest dostępna w wymaganej ilości
 
-**Zwraca:** 'DOSTEPNA', 'BRAK' lub 'NIEWYSTARCZAJACA_ILOSC'
+**Zwraca:** 'DOSTEPNA', 'BRAK - dostepne tylko X szt.' lub 'NIEZNANA CZESC'
 
 ---
 
@@ -336,13 +338,13 @@ Indeksy przyspieszają operacje JOIN oraz kaskadowe usuwanie:
 
 ```sql
 sp_NoweZlecenie(
-    p_id_pojazdu IN NUMBER,
-    p_id_pracownika IN NUMBER,
-    p_opis_usterki IN CLOB,
-    p_data_planowana IN DATE DEFAULT NULL,
-    p_uwagi IN VARCHAR2 DEFAULT NULL,
-    p_id_zlecenia OUT NUMBER,
-    p_numer_zlecenia OUT VARCHAR2
+    IN p_id_pojazdu INT,
+    IN p_id_pracownika INT,
+    IN p_opis_usterki TEXT,
+    IN p_data_planowana DATE,
+    IN p_uwagi VARCHAR(1000),
+    OUT p_id_zlecenia INT,
+    OUT p_numer_zlecenia VARCHAR(20)
 )
 ```
 
@@ -361,10 +363,10 @@ sp_NoweZlecenie(
 
 ```sql
 sp_ZmienStatusZlecenia(
-    p_id_zlecenia IN NUMBER,
-    p_nowy_status IN VARCHAR2,
-    p_id_pracownika IN NUMBER,
-    p_komentarz IN VARCHAR2 DEFAULT NULL
+    IN p_id_zlecenia INT,
+    IN p_nowy_status VARCHAR(50),
+    IN p_id_pracownika INT,
+    IN p_komentarz VARCHAR(500)
 )
 ```
 
@@ -383,11 +385,11 @@ sp_ZmienStatusZlecenia(
 
 ```sql
 sp_DodajUslugeDoZlecenia(
-    p_id_zlecenia IN NUMBER,
-    p_id_uslugi IN NUMBER,
-    p_krotnosc IN NUMBER DEFAULT 1,
-    p_id_pracownika_wyk IN NUMBER DEFAULT NULL,
-    p_rabat_dodatkowy IN NUMBER DEFAULT 0
+    IN p_id_zlecenia INT,
+    IN p_id_uslugi INT,
+    IN p_krotnosc INT,
+    IN p_id_pracownika_wyk INT,
+    IN p_rabat_dodatkowy DECIMAL(5,2)
 )
 ```
 
@@ -407,10 +409,10 @@ sp_DodajUslugeDoZlecenia(
 
 ```sql
 sp_DodajCzescDoZlecenia(
-    p_id_zlecenia IN NUMBER,
-    p_id_czesci IN NUMBER,
-    p_ilosc IN NUMBER DEFAULT 1,
-    p_rabat IN NUMBER DEFAULT 0
+    IN p_id_zlecenia INT,
+    IN p_id_czesci INT,
+    IN p_ilosc INT,
+    IN p_rabat DECIMAL(5,2)
 )
 ```
 
@@ -431,11 +433,11 @@ sp_DodajCzescDoZlecenia(
 
 ```sql
 sp_RejestrujDostawe(
-    p_id_czesci IN NUMBER,
-    p_id_dostawcy IN NUMBER,
-    p_ilosc IN NUMBER,
-    p_cena_jednostkowa IN NUMBER,
-    p_nr_faktury IN VARCHAR2 DEFAULT NULL
+    IN p_id_czesci INT,
+    IN p_id_dostawcy INT,
+    IN p_ilosc INT,
+    IN p_cena_jednostkowa DECIMAL(10,2),
+    IN p_numer_faktury VARCHAR(50)
 )
 ```
 
@@ -453,8 +455,8 @@ sp_RejestrujDostawe(
 
 ```sql
 sp_ZamknijZlecenie(
-    p_id_zlecenia IN NUMBER,
-    p_id_pracownika IN NUMBER
+    IN p_id_zlecenia INT,
+    IN p_id_pracownika INT
 )
 ```
 
@@ -464,7 +466,7 @@ sp_ZamknijZlecenie(
 
 1. Sprawdza czy są pozycje (usługi lub części)
 2. Przelicza wartość zlecenia
-3. Zmienia status na "Gotowe"
+3. Zmienia status na "Zakonczone"
 
 ---
 
@@ -474,50 +476,39 @@ sp_ZamknijZlecenie(
 
 **Typ:** BEFORE INSERT na Zlecenie
 
-**Cel:** Automatyczne generowanie ID i numeru zlecenia
+**Cel:** Automatyczne generowanie numeru zlecenia
 
 **Działanie:**
 
-- Jeśli ID_Zlecenia jest NULL → pobiera z sekwencji
 - Jeśli NumerZlecenia jest NULL → generuje format ZLC/RRRR/NNNNN
 
-### 8.2 trg_Historia_AutoInsert
+### 8.2 trg_Magazyn_AlertNiskiStan
 
-**Typ:** AFTER UPDATE OF ID_AktualnegoStatusu na Zlecenie
-
-**Cel:** Automatyczne logowanie zmian statusu
-
-**Działanie:** Przy każdej zmianie statusu tworzy wpis w HistoriaZmian
-
-**Warunek:** OLD.ID_AktualnegoStatusu != NEW.ID_AktualnegoStatusu
-
-### 8.3 trg_Magazyn_AlertNiskiStan
-
-**Typ:** AFTER UPDATE OF IloscDostepna na MagazynCzesc
+**Typ:** AFTER UPDATE na MagazynCzesc
 
 **Cel:** Alert gdy stan magazynowy spada poniżej minimum
 
-**Działanie:** Wypisuje ostrzeżenie do DBMS_OUTPUT z danymi części
+**Działanie:** Zapisuje ostrzeżenie do tabeli LogAlertyMagazyn z danymi części
 
 **Warunek:** NEW.IloscDostepna < NEW.MinStanAlarmowy AND OLD.IloscDostepna >= OLD.MinStanAlarmowy
 
-### 8.4 trg_PozUslugi_ObliczCene
+### 8.3 trg_PozUslugi_ObliczCene_Insert / \_Update
 
-**Typ:** BEFORE INSERT OR UPDATE na PozycjeZlecenia_Uslugi
+**Typ:** BEFORE INSERT / UPDATE na PozycjeZlecenia_Uslugi
 
 **Cel:** Automatyczne obliczanie ceny końcowej usługi
 
 **Formuła:** CenaKoncowa = CenaJednostkowa × Krotnosc × (1 - Rabat/100)
 
-### 8.5 trg_PozCzesci_ObliczCene
+### 8.4 trg_PozCzesci_ObliczCene_Insert / \_Update
 
-**Typ:** BEFORE INSERT OR UPDATE na PozycjeZlecenia_Czesci
+**Typ:** BEFORE INSERT / UPDATE na PozycjeZlecenia_Czesci
 
 **Cel:** Automatyczne obliczanie ceny końcowej części
 
 **Formuła:** CenaKoncowa = CenaWChwiliSprzedazy × Ilosc × (1 - Rabat/100)
 
-### 8.6 trg_Dostawy_AktualizujMagazyn
+### 8.5 trg_Dostawy_AktualizujMagazyn
 
 **Typ:** AFTER INSERT na Dostawy
 
@@ -525,9 +516,9 @@ sp_ZamknijZlecenie(
 
 **Działanie:** Zwiększa IloscDostepna o wartość IloscSztuk z dostawy
 
-### 8.7 trg_Pracownik_WalidacjaDat
+### 8.6 trg_Pracownik_WalidacjaDat_Insert / \_Update
 
-**Typ:** BEFORE INSERT OR UPDATE na Pracownik
+**Typ:** BEFORE INSERT / UPDATE na Pracownik
 
 **Cel:** Walidacja poprawności dat zatrudnienia/zwolnienia
 
@@ -542,47 +533,50 @@ sp_ZamknijZlecenie(
 
 ### 9.1 Rodzaje kopii zapasowych
 
-| Typ              | Częstotliwość    | Retencja | Metoda    |
-| ---------------- | ---------------- | -------- | --------- |
-| Pełny            | Codziennie 02:00 | 30 dni   | RMAN      |
-| Przyrostowy      | Co 4 godziny     | 7 dni    | RMAN      |
-| Archive Log      | Ciągły           | 14 dni   | RMAN      |
-| Eksport logiczny | Tygodniowo       | 90 dni   | Data Pump |
+| Typ              | Częstotliwość    | Retencja | Metoda               |
+| ---------------- | ---------------- | -------- | -------------------- |
+| Pełny            | Codziennie 02:00 | 30 dni   | mysqldump            |
+| Przyrostowy      | Co 4 godziny     | 7 dni    | Binary logs          |
+| Eksport logiczny | Tygodniowo       | 90 dni   | mysqldump --routines |
 
-### 9.2 Skrypt RMAN - pełny backup
+### 9.2 Skrypt backupu - pełny dump
 
-```sql
-rman target /
+```bash
+#!/bin/bash
+# Pełny backup bazy warsztat
+DATE=$(date +%Y%m%d_%H%M%S)
+BACKUP_DIR="/backup/warsztat"
 
-CONFIGURE RETENTION POLICY TO RECOVERY WINDOW OF 30 DAYS;
-CONFIGURE BACKUP OPTIMIZATION ON;
-CONFIGURE CONTROLFILE AUTOBACKUP ON;
+mysqldump -u root -p \
+    --single-transaction \
+    --routines \
+    --triggers \
+    --events \
+    warsztat > "${BACKUP_DIR}/warsztat_full_${DATE}.sql"
 
-RUN {
-    ALLOCATE CHANNEL ch1 DEVICE TYPE DISK
-        FORMAT '/backup/warsztat/full_%d_%T_%U';
-    BACKUP DATABASE PLUS ARCHIVELOG;
-    DELETE NOPROMPT OBSOLETE;
-    RELEASE CHANNEL ch1;
-}
+# Kompresja
+gzip "${BACKUP_DIR}/warsztat_full_${DATE}.sql"
+
+# Usunięcie starszych niż 30 dni
+find ${BACKUP_DIR} -name "*.gz" -mtime +30 -delete
 ```
 
-### 9.3 Procedury PL/SQL do backupu
+### 9.3 Przywracanie z backupu
 
-**sp_BackupTabelKrytycznych** - tworzy kopie tabel jako CTAS:
+```bash
+# Przywrócenie pełnego backupu
+gunzip -c warsztat_full_20260118.sql.gz | mysql -u root -p warsztat
 
-```sql
-CREATE TABLE Zlecenie_BKP_20260118 AS SELECT * FROM Zlecenie;
+# Przywrócenie z binary logs (point-in-time recovery)
+mysqlbinlog binlog.000001 binlog.000002 | mysql -u root -p warsztat
 ```
 
-**sp_CzyscStareBackupy** - usuwa kopie starsze niż N dni
-
-### 9.4 Harmonogram
+### 9.4 Harmonogram (cron)
 
 ```
 0 2 * * *           - Pełny backup (codziennie 02:00)
-0 6,10,14,18,22 * * * - Incremental (co 4h)
-0 3 * * 0           - Data Pump export (niedziela 03:00)
+0 6,10,14,18,22 * * * - Incremental z binary logs
+0 3 * * 0           - Eksport z procedurami (niedziela 03:00)
 ```
 
 ---
@@ -603,31 +597,31 @@ WHERE p.NrRejestracyjny = 'KR12345';
 
 ```sql
 SELECT z.NumerZlecenia, z.DataPrzyjecia, p.NrRejestracyjny,
-       mk.NazwaMarki || ' ' || m.NazwaModelu AS Pojazd,
+       CONCAT(mk.NazwaMarki, ' ', m.NazwaModelu) AS Pojazd,
        z.KosztCalkowity, s.NazwaStatusu
 FROM Zlecenie z
 JOIN Pojazd p ON z.ID_Pojazdu = p.ID_Pojazdu
 JOIN Model m ON p.ID_Modelu = m.ID_Modelu
 JOIN Marka mk ON m.ID_Marki = mk.ID_Marki
 JOIN StatusyZlecen s ON z.ID_AktualnegoStatusu = s.ID_Statusu
-WHERE p.ID_Klienta = :id_klienta
+WHERE p.ID_Klienta = ?
 ORDER BY z.DataPrzyjecia DESC;
 ```
 
 ### 10.3 Raport przychodów miesięcznych
 
 ```sql
-SELECT TO_CHAR(DataPrzyjecia, 'YYYY-MM') AS Miesiac,
+SELECT DATE_FORMAT(DataPrzyjecia, '%Y-%m') AS Miesiac,
        COUNT(*) AS LiczbaZlecen,
        SUM(KosztCalkowity) AS Przychod,
        ROUND(AVG(KosztCalkowity), 2) AS SredniKoszt
 FROM Zlecenie z
 JOIN StatusyZlecen s ON z.ID_AktualnegoStatusu = s.ID_Statusu
 WHERE s.NazwaStatusu = 'Wydane'
-GROUP BY TO_CHAR(DataPrzyjecia, 'YYYY-MM')
+GROUP BY DATE_FORMAT(DataPrzyjecia, '%Y-%m')
 ORDER BY Miesiac DESC;
 ```
- 
+
 ### 10.4 Części do zamówienia (niski stan)
 
 ```sql
@@ -648,25 +642,25 @@ SELECT hz.DataZmiany,
        sp.NazwaStatusu AS StatusPoprzedni,
        sn.NazwaStatusu AS StatusNowy,
        hz.Komentarz,
-       o.Imie || ' ' || o.Nazwisko AS Pracownik
+       CONCAT(o.Imie, ' ', o.Nazwisko) AS Pracownik
 FROM HistoriaZmian hz
 JOIN Zlecenie z ON hz.ID_Zlecenia = z.ID_Zlecenia
 LEFT JOIN StatusyZlecen sp ON hz.ID_StatusuPoprzedni = sp.ID_Statusu
 JOIN StatusyZlecen sn ON hz.ID_StatusuNowy = sn.ID_Statusu
 JOIN Pracownik p ON hz.ID_Pracownika = p.ID_Osoby
 JOIN Osoba o ON p.ID_Osoby = o.ID_Osoby
-WHERE z.NumerZlecenia = :numer_zlecenia
+WHERE z.NumerZlecenia = ?
 ORDER BY hz.DataZmiany;
 ```
 
 ### 10.6 Statystyki pracownika
 
 ```sql
-SELECT o.Imie || ' ' || o.Nazwisko AS Pracownik,
+SELECT CONCAT(o.Imie, ' ', o.Nazwisko) AS Pracownik,
        st.NazwaStanowiska,
        COUNT(DISTINCT z.ID_Zlecenia) AS PrzyjetychZlecen,
        COUNT(DISTINCT pu.ID_PozycjiUslugi) AS WykonanychUslug,
-       SUM(pu.CenaKoncowa) AS WartoscUslug
+       IFNULL(SUM(pu.CenaKoncowa), 0) AS WartoscUslug
 FROM Pracownik p
 JOIN Osoba o ON p.ID_Osoby = o.ID_Osoby
 JOIN Stanowisko st ON p.ID_Stanowiska = st.ID_Stanowiska
@@ -674,7 +668,7 @@ LEFT JOIN Zlecenie z ON p.ID_Osoby = z.ID_Pracownika
 LEFT JOIN PozycjeZlecenia_Uslugi pu ON p.ID_Osoby = pu.ID_Pracownika
 WHERE p.DataZwolnienia IS NULL
 GROUP BY o.Imie, o.Nazwisko, st.NazwaStanowiska
-ORDER BY WartoscUslug DESC NULLS LAST;
+ORDER BY WartoscUslug DESC;
 ```
 
 ### 10.7 Najpopularniejsze usługi
@@ -687,7 +681,7 @@ FROM PozycjeZlecenia_Uslugi pu
 JOIN KatalogUslug ku ON pu.ID_Uslugi = ku.ID_Uslugi
 GROUP BY ku.ID_Uslugi, ku.NazwaUslugi, ku.CenaBazowa
 ORDER BY LiczbaWykonan DESC
-FETCH FIRST 10 ROWS ONLY;
+LIMIT 10;
 ```
 
 ### 10.8 Wyszukiwanie klienta po nazwisku
@@ -699,7 +693,7 @@ SELECT o.ID_Osoby, o.Imie, o.Nazwisko, o.Telefon, o.Email,
 FROM Osoba o
 JOIN Klient k ON o.ID_Osoby = k.ID_Osoby
 LEFT JOIN Pojazd p ON k.ID_Osoby = p.ID_Klienta
-WHERE UPPER(o.Nazwisko) LIKE UPPER('%' || :szukane || '%')
+WHERE UPPER(o.Nazwisko) LIKE CONCAT('%', UPPER(?), '%')
 GROUP BY o.ID_Osoby, o.Imie, o.Nazwisko, o.Telefon, o.Email,
          k.NIP, k.RabatStaly, k.DataRejestracji
 ORDER BY o.Nazwisko, o.Imie;
@@ -709,132 +703,145 @@ ORDER BY o.Nazwisko, o.Imie;
 
 ## 11. Skrypty SQL
 
-Wszystkie skrypty znajdują się w katalogu `SQL/`:
+Wszystkie skrypty znajdują się w katalogu `MySQL/`:
 
 | Plik                   | Opis                                          |
 | ---------------------- | --------------------------------------------- |
 | 00_INSTALL_ALL.sql     | Skrypt instalacyjny (uruchamia wszystkie)     |
 | 01_CREATE_DATABASE.sql | Tabele, klucze, ograniczenia, dane słownikowe |
-| 02_INDEXES.sql         | Indeksy (24)                                  |
+| 02_INDEXES.sql         | Indeksy (28)                                  |
 | 03_VIEWS_FUNCTIONS.sql | Widoki (7) i funkcje (4)                      |
 | 04_PROCEDURES.sql      | Procedury składowane (6)                      |
-| 05_TRIGGERS.sql        | Wyzwalacze (7)                                |
-| 06_BACKUP_STRATEGY.sql | Strategia kopii zapasowych                    |
-| 07_TEST_DATA.sql       | Dane testowe                                  |
-
-### Instalacja
-
-```sql
-sqlplus uzytkownik/haslo@baza
-@SQL/00_INSTALL_ALL.sql
-```
+| 05_TRIGGERS.sql        | Wyzwalacze (8)                                |
+| 06_TEST_DATA.sql       | Dane testowe                                  |
 
 ---
 
-## 12. Podsumowanie spełnionych wymagań
-
-| Wymaganie                 | Minimum        | Zrealizowano            | 
-| ------------------------- | -------------- | ----------------------- | 
-| Tabele                    | 16 (8×2 osoby) | 17                      | 
-| Schemat dziedziczenia     | Tak            | Class Table Inheritance | 
-| Atrybuty zmienne w czasie | Tak            | Tabela HistoriaZmian    | 
-| Widoki/funkcje            | 10             | 11 (7+4)                | 
-| Procedury składowane      | 5              | 6                       | 
-| Wyzwalacze                | 5              | 7                       | 
-| Strategia backupu         | Tak            | RMAN + Data Pump        | 
-| Indeksy                   | -              | 24                      | 
-| Diagram ER                | Tak            | Tak                     | 
-| Schemat relacji           | Tak            | Tak                     | 
-| Więzy integralności       | Tak            | ~45 CHECK + UNIQUE      | 
-| Typowe zapytania          | Tak            | 8 przykładów            | 
-
----
-
-## 13. Urchomienie bazy danych
-
-## Szybki start - Uruchomienie bazy danych
+## 12. Uruchomienie bazy danych
 
 ### Wymagania
+
 - **Docker Desktop** - [pobierz tutaj](https://www.docker.com/products/docker-desktop/)
 - **PowerShell** (Windows) lub Terminal (Linux/Mac)
 
-### Krok 1: Uruchom kontener Oracle
+### Krok 1: Uruchom kontener MySQL
 
 ```powershell
-docker run -d --name oracle-xe -p 1521:1521 -e ORACLE_PASSWORD=warsztat123 gvenzl/oracle-xe:21-slim
+docker run -d --name mysql-warsztat -p 3306:3306 -e MYSQL_ROOT_PASSWORD=warsztat123 -e MYSQL_DATABASE=warsztat mysql:8.0
 ```
 
-### Krok 2: Poczekaj na uruchomienie bazy (~60-90 sekund)
+### Krok 2: Poczekaj na uruchomienie bazy (~30-60 sekund)
 
 ```powershell
 # Windows PowerShell
-do { Start-Sleep 3; $r = docker logs oracle-xe 2>&1 | Select-String "DATABASE IS READY" } while (-not $r); "Baza gotowa!"
+do { Start-Sleep 3; $r = docker logs mysql-warsztat 2>&1 | Select-String "ready for connections" } while (-not $r); "Baza gotowa!"
 ```
 
 ```bash
 # Linux/Mac
-while ! docker logs oracle-xe 2>&1 | grep -q "DATABASE IS READY"; do sleep 3; done; echo "Baza gotowa!"
+while ! docker logs mysql-warsztat 2>&1 | grep -q "ready for connections"; do sleep 3; done; echo "Baza gotowa!"
 ```
 
 ### Krok 3: Skopiuj pliki SQL do kontenera
 
 ```powershell
-docker cp SQL oracle-xe:/home/oracle/
+docker cp MySQL mysql-warsztat:/tmp/
 ```
 
 ### Krok 4: Uruchom instalację
 
 ```powershell
-docker exec oracle-xe bash -c "cd /home/oracle && echo -e 'SET SQLBLANKLINES ON\n@00_INSTALL_ALL.sql' | sqlplus -S system/warsztat123@XEPDB1"
+docker exec -i mysql-warsztat mysql -uroot -pwarsztat123 warsztat < MySQL/01_CREATE_DATABASE.sql
+docker exec -i mysql-warsztat mysql -uroot -pwarsztat123 warsztat < MySQL/02_INDEXES.sql
+docker exec -i mysql-warsztat mysql -uroot -pwarsztat123 warsztat < MySQL/03_VIEWS_FUNCTIONS.sql
+docker exec -i mysql-warsztat mysql -uroot -pwarsztat123 warsztat < MySQL/04_PROCEDURES.sql
+docker exec -i mysql-warsztat mysql -uroot -pwarsztat123 warsztat < MySQL/05_TRIGGERS.sql
+docker exec -i mysql-warsztat mysql -uroot -pwarsztat123 warsztat < MySQL/06_TEST_DATA.sql
 ```
 
 ### Dane połączenia
 
-| Parametr | Wartość |
-|----------|---------|
-| Host | `localhost` |
-| Port | `1521`|
-| Service Name | `XEPDB1` |
-| Użytkownik | `system` |
-| Hasło | `warsztat123` |
-| Connection String | `system/warsztat123@localhost:1521/XEPDB1` |
+| Parametr          | Wartość                                                     |
+| ----------------- | ----------------------------------------------------------- |
+| Host              | `localhost`                                                 |
+| Port              | `3306`                                                      |
+| Baza danych       | `warsztat`                                                  |
+| Użytkownik        | `root`                                                      |
+| Hasło             | `warsztat123`                                               |
+| Connection String | `mysql -h localhost -P 3306 -u root -pwarsztat123 warsztat` |
 
-### Połączenie z bazą przez SQLPlus
+### Połączenie z bazą przez mysql CLI
 
 ```powershell
-docker exec -it oracle-xe sqlplus system/warsztat123@XEPDB1
+docker exec -it mysql-warsztat mysql -uroot -pwarsztat123 warsztat
 ```
 
 ### Przydatne komendy Docker
 
 ```powershell
 # Zatrzymaj kontener
-docker stop oracle-xe
+docker stop mysql-warsztat
 
 # Uruchom ponownie
-docker start oracle-xe
+docker start mysql-warsztat
 
 # Usuń kontener (reset bazy)
-docker rm -f oracle-xe
+docker rm -f mysql-warsztat
 
 # Zobacz logi
-docker logs oracle-xe
+docker logs mysql-warsztat
 ```
 
 ### Weryfikacja instalacji
 
-Po uruchomieniu instalacji powinieneś zobaczyć podsumowanie:
+Po uruchomieniu instalacji wykonaj:
+
+```sql
+-- Sprawdź tabele
+SELECT COUNT(*) AS Tabele FROM information_schema.tables
+WHERE table_schema = 'warsztat' AND table_type = 'BASE TABLE';
+
+-- Sprawdź widoki
+SELECT COUNT(*) AS Widoki FROM information_schema.views
+WHERE table_schema = 'warsztat';
+
+-- Sprawdź procedury i funkcje
+SELECT routine_type, COUNT(*) FROM information_schema.routines
+WHERE routine_schema = 'warsztat' GROUP BY routine_type;
+
+-- Sprawdź triggery
+SELECT COUNT(*) AS Triggery FROM information_schema.triggers
+WHERE trigger_schema = 'warsztat';
 ```
-OBIEKT         LICZBA
----------- ----------
-TABELE             17
-SEKWENCJE          16
-WIDOKI              7
-FUNKCJE             4
-PROCEDURY           6
-WYZWALACZE          7
-INDEKSY            29
-```
+
+Oczekiwany wynik:
+
+- Tabele: 17 (+ 1 LogAlertyMagazyn)
+- Widoki: 7
+- Procedury: 6
+- Funkcje: 4
+- Triggery: 8
+
+---
+
+## 13. Podsumowanie spełnionych wymagań
+
+| Wymaganie                 | Minimum        | Zrealizowano            |
+| ------------------------- | -------------- | ----------------------- |
+| Tabele                    | 16 (8×2 osoby) | 17                      |
+| Schemat dziedziczenia     | Tak            | Class Table Inheritance |
+| Atrybuty zmienne w czasie | Tak            | Tabela HistoriaZmian    |
+| Widoki/funkcje            | 10             | 11 (7+4)                |
+| Procedury składowane      | 5              | 6                       |
+| Wyzwalacze                | 5              | 8                       |
+| Strategia backupu         | Tak            | mysqldump + binary logs |
+| Indeksy                   | -              | 28                      |
+| Diagram ER                | Tak            | Tak                     |
+| Schemat relacji           | Tak            | Tak                     |
+| Więzy integralności       | Tak            | ~45 CHECK + UNIQUE      |
+| Typowe zapytania          | Tak            | 8 przykładów            |
+
+---
 
 ## 14. Autorzy
 
